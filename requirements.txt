@@ -1,0 +1,16 @@
+adium-theme-ubuntu==0.3.4
+Django==1.11.1
+django-markdown-deux==1.0.5
+gunicorn==19.4.5
+gyp==0.1
+markdown2==2.3.3
+MySQL-python==1.2.5
+pycurl==7.43.0
+pyliblzma==0.5.3
+pysqlite==1.0.1
+pytz==2017.2
+rpm-python==4.12.0.1
+unity-lens-photos==1.0
+urlgrabber==3.9.1
+virtualenv==15.1.0
+yum-metadata-parser==1.1.4
