@@ -8,4 +8,7 @@ pip install -r requirements.txt
 superuser credentials
 both username and password same as iitddevclub
 
-NOW to make the VIEWS
+The basic structure of the repo is completed(I(Mayank) used the most basic UI)
+	*Now we have to add the upload feature
+	*Provide a better UI
+	*Think about the storage of files

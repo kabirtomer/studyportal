@@ -1,0 +1,35 @@
+body{
+    margin: 0;
+    padding:0;
+}
+.sidebar, .content{
+    background: #333;
+    color: #fff;
+    height: 500px;
+    border-radius: 4px;
+    border:1px solid #777;
+}
+.sidebar{
+
+    width: 300px;
+    /* float:left  Removed*/
+    left:0; /* Added */
+    top:0; /* Added */
+    position: absolute;
+}
+.content{
+    width: 630px;
+    margin-left:300px ;/* Added */
+	margin-top:0px;
+}
+a{
+    color: #0060B6;
+    text-decoration: none;
+}
+
+a:hover 
+{
+     color:#00A0C6; 
+     text-decoration:none; 
+     cursor:pointer;  
+}

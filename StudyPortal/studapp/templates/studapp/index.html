@@ -1,9 +1,46 @@
-{% if departments %}
-    <ul>
-    {% for department in departments %}
-        <li><a href="/studapp/{{ department.id }}/">{{ department.dept }}</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No departments are available.</p>
-{% endif %}
+{% load static %}
+<html>
+<head>
+	<link type="text/css" rel="stylesheet" href="{% static 'studapp/style.css' %}"/>
+	<title>{% block title %}Home{% endblock %}</title>
+</head>
+<body>
+  <div class="sidebar"> 
+	<h1>Study Portal</h1>
+	{% block sidebar %}
+
+	<form action="/studapp/view" id='course_with_code' method='get'>
+		
+	<select name="department" form="course_with_code">
+		 <option value="0" selected="selected">Select a department</option>
+		 {% for dept in departments %}
+		 <option value= {{ dept.id }}>{{ dept.dept }}</option>
+		 {% endfor %}		 
+	</select>
+<!-- We have to change so that the second list is dynamically updated based on first one -->
+	<select name="course_code" form="course_with_code">
+		 <option value="0" selected="selected">Select a course code</option>
+		 {% for course in courses %}
+		 <option value= {{ course.id }}>{{ course.code }}</option>
+		 {% endfor %}
+ 	<input type="submit"></form>
+	{% endblock %}
+  </div>
+	
+  <div class="content"> 
+	{% block content %}
+	{% for dept in departments %}
+		<table bgcolor="#83e079">
+				<th>{{ dept.dept }}</th>
+			</tr>
+			{% for course in dept.course_code_set.all %}
+			<tr>
+				<td><a href="/studapp/view/?department={{ dept.id }}&course_code={{ course.id }}">{{ course.code }}</a></td>
+			</tr>
+			{% endfor %}
+			<br></br>
+	{% endfor %}
+	{% endblock %}
+  </div>
+</body>
+</html>
