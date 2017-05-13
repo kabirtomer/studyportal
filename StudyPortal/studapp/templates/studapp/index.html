@@ -1,0 +1,9 @@
+{% if departments %}
+    <ul>
+    {% for department in departments %}
+        <li><a href="/studapp/{{ department.id }}/">{{ department.dept }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No departments are available.</p>
+{% endif %}

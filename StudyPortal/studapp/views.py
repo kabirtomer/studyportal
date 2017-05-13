@@ -5,6 +5,9 @@ from django.shortcuts import render
 
 # Create your views here.
 from django.http import HttpResponse
-def index(request):
-    return HttpResponse("Hello, world. You're at the studapp index.")
+from .models import *
 
+def index(request):
+	departments=Department.objects.order_by('dept')
+	context={'departments':departments}
+	return render(request,'studapp/index.html',context)
