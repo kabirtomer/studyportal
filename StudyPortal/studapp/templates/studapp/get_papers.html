@@ -20,7 +20,7 @@
 {% endfor %}
 
 <h3>Other</h3>
-{% for exam in course.other.all %}
+{% for exam in course.other_set.all %}
 <p>{{ exam.paper }}</p>
 {% endfor %}
 {% endblock %}
