@@ -1,29 +1,41 @@
+* {
+
+	box-sizing: border-box;
+}
+
 body{
     margin: 0;
     padding:0;
 }
 .sidebar, .content{
-    background: #333;
+    /*background: #333; Removed*/
     color: #fff;
-    height: 500px;
-    border-radius: 4px;
+    /* border-radius: 4px;
     border:1px solid #777;
+	float: left; Removed*/
 }
 .sidebar{
-
-    width: 300px;
+	width: 29%;
+    height: 100%;
+    /* width: 300px; Removed*/
     /* float:left  Removed*/
     left:0; /* Added */
     top:0; /* Added */
-    position: absolute;
+    position: fixed; /*Changed from absolute*/
+	padding: 1%;
+	background-color: rgb(0,0,112);
+	
 }
 .content{
-    width: 630px;
-    margin-left:300px ;/* Added */
-	margin-top:0px;
+	width:71%;
+    /* width: 630px; Removed*/
+    margin-left: 29% ;/* Added */
+	padding: 50px 5% 5% 5%;
+	background-color: rgb(169,169,169);
 }
 a{
-    color: #0060B6;
+    /*color: #0060B6; Removed*/
+	color: White;
     text-decoration: none;
 }
 
@@ -33,3 +45,45 @@ a:hover
      text-decoration:none; 
      cursor:pointer;  
 }
+
+h1 {
+color: rgb(211,211,211);
+font-size: 36px;
+margin: 10px;
+width: 100%;
+}
+
+table {
+width: 25%;
+background-color: rgb(0,0,112);
+/* border-radius: 5px;
+border: 1px solid rgb(0,0,112); Removed*/
+}
+
+td {
+padding: 5px 5%;
+color: White;
+}
+
+tr{
+color: rgb(211,211,211);
+}
+
+select {
+padding: 5px;
+margin: 10px 0px;
+font-size: 16px;
+width: 100%;
+}
+
+.input{
+padding-top: 20%;
+}
+
+input{
+margin: 10px;
+font-size: 16px;
+padding: 5px;
+}
+
+
