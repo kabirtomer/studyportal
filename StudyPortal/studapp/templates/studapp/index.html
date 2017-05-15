@@ -2,11 +2,12 @@
 <html>
 <head>
 	<link type="text/css" rel="stylesheet" href="{% static 'studapp/style.css' %}"/>
+	<link href="https://fonts.googleapis.com/css?family=Lato|Open+Sans|Slabo+27px" rel="stylesheet">
 	<title>{% block title %}Home{% endblock %}</title>
 </head>
 <body>
   <div class="sidebar"> 
-	<h1>Study Portal</h1>
+	<a href="/studapp/"><h1>Study Portal</h1></a>
 	{% block sidebar %}
 
 	<div class="input">
@@ -32,14 +33,15 @@
 	{% block content %}
 	{% for dept in departments %}
 		<table>
+			<tr>
 				<th>{{ dept.dept }}</th>
 			</tr>
 			{% for course in dept.course_code_set.all %}
 			<tr>
-				<td><a href="/studapp/view/?department={{ dept.id }}&course_code={{ course.id }}">{{ course.code }}</a></td>
+				<td><a class="course" href="/studapp/view/?department={{ dept.id }}&course_code={{ course.id }}">{{ course.code }}</a></td>
 			</tr>
 			{% endfor %}
-			<br></br>
+			<br /></table>
 	{% endfor %}
 	{% endblock %}
   </div>

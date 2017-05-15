@@ -5,7 +5,7 @@
 <h2>{{ department.dept }}</h2>
 <h3>Course List</h3>
 {% for course in department.course_code_set.all %}
-<a href="/studapp/view/?department={{ department.id }}&course_code={{ course.id }}">{{ course.code }}</a>
+<a href="/studapp/view/?department={{ department.id }}&course_code={{ course.id }}"><h3>{{ course.code }}</h3></a>
 <br></br>
 {% endfor %}
 {% endblock %}
