@@ -9,6 +9,7 @@
 	<h1>Study Portal</h1>
 	{% block sidebar %}
 
+	<div class="input">
 	<form action="/studapp/view" id='course_with_code' method='get'>
 		
 	<select name="department" form="course_with_code">
@@ -23,14 +24,14 @@
 		 {% for course in courses %}
 		 <option value= {{ course.id }}>{{ course.code }}</option>
 		 {% endfor %}
- 	<input type="submit"></form>
+ 	<input type="submit"></form></div>
 	{% endblock %}
   </div>
 	
   <div class="content"> 
 	{% block content %}
 	{% for dept in departments %}
-		<table bgcolor="#83e079">
+		<table>
 				<th>{{ dept.dept }}</th>
 			</tr>
 			{% for course in dept.course_code_set.all %}
