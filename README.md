@@ -1,4 +1,12 @@
 # studyportal
+
+For usage: 
+1. Install requirements.txt file and run server at your local device. 
+2. Thereafter, go to the home page at localhost:<port_number>/studapp/
+3. For admin page go to localhost:<port_number>/admin/
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
 We will work using python 2.7
 and latest version of django that is django 1.11.1
 
