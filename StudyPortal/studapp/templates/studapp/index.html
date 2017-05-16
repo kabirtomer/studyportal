@@ -27,11 +27,12 @@
 		 {% endfor %}
  	<input type="submit"></form></div>
 	{% endblock %}
-	<p class="upload">Upload a new file</p> 
+	<a href="/studapp/upload"><p class="upload">Upload a new file</p></a> 
   </div>
 	
   <div class="content"> 
 	{% block content %}
+	<h2>All Courses</h2>
 	{% for dept in departments %}
 		<table>
 			<tr>

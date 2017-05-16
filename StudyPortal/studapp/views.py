@@ -35,3 +35,9 @@ def display(request):
 	else:
 		course=Course_code.objects.get(pk=course_code_id)
 		return render(request,'studapp/get_papers.html',{'course':course,'departments':all_departments,'courses':all_courses})
+
+def upload(request):
+        departments=Department.objects.order_by('dept')
+	courses=Course_code.objects.order_by('code')
+	context={'departments':departments,'courses':courses}
+        return render(request,'studapp/upload.html', context)

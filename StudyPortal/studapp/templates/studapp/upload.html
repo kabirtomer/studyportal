@@ -1,0 +1,29 @@
+{% extends 'studapp/index.html' %}
+{%block title%}Upload a new file{% endblock %}
+
+{% block content %}
+<h2>Upload a New File</h2>
+<br />
+<form action="/studapp/upload">
+	<strong>Course Code</strong>
+	<input list="Entry1">
+	<datalist id="Entry1">
+		{% for dept in departments %}
+			{% for cc in dept.course_code_set.all %}
+			<option value="{{ cc.code }}">
+			{% endfor %}
+		{% endfor %}
+	</datalist><br />
+	<strong>Session</strong>
+	<input type="text" name="E.g. 2016-17 Sem I or 2014-15 Sem II"><br />
+	<strong>Type of Exam</strong>
+	<input list="Entry2" name="Minor, Major or Others">
+	<datalist id="Entry2">
+		<option value="Minor1">
+		<option value="Minor2">
+		<option value="Major">
+		<option value="Others">
+	</datalist><br />
+<input type="submit" text="Choose file">
+</form>
+{% endblock %}
