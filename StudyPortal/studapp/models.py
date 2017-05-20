@@ -2,7 +2,21 @@
 from __future__ import unicode_literals
 
 from django.db import models
+###to change the filename of uploaded doc
+import hashlib
+import datetime
+import os
+from functools import partial
 
+def _update_filename(instance, filename, path):
+	path = path
+
+	filename = instance.course_code+'_'+instance.session+'_'+instance.type_exam+'.pdf'
+
+	return os.path.join(path, filename)
+
+def upload_to(path):
+	return partial(_update_filename, path=path)
 # Create your models here.
 
 #My plan is that we will have a table for DEPARTMENTS
@@ -44,4 +58,13 @@ class Other(models.Model):
 	paper=models.CharField(max_length=50)
 	def __str__(self):
 		return self.paper
-	
+###uploaded unchecked document
+class Document(models.Model):
+	course_code = models.CharField(max_length=6, blank=True)
+	session = models.CharField(max_length=20, blank=True)	
+	type_exam = models.CharField(max_length=10, blank=True)
+	document = models.FileField(upload_to=upload_to('documents/'))
+	uploaded_at = models.DateTimeField(auto_now_add=True)
+	def __str__(self):
+		return self.course_code+'_'+self.session+'_'+self.type_exam+'.pdf'
+

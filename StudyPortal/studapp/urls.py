@@ -5,6 +5,8 @@ from . import views
 urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^view/$', views.display ,name='display'),
-    #url(r'^view?department=([0-9]+)&course_code=([0-9]+)/$',views.test,name='test'),
-    url(r'^upload/$', views.upload ,name='upload'),
+    
+   # url(r'^upload/$', views.upload ,name='upload'),
+	url(r'^upload/$', views.model_form_upload ,name='upload'),
+	url(r'^thanks/$', views.thanks ,name='thanks'),
 ]

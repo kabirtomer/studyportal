@@ -6,7 +6,8 @@ For usage:
 3. For admin page go to localhost:<port_number>/admin/
 
 -------------------------------------------------------------------------------------------------------------------------------------------
-
+I've added the upload feature wich adds the files in media folder, now i've to add foreign keys to link the files of original models
+-------------------------------------------------------------------------------------------------------------------------------------------
 We will work using python 2.7
 and latest version of django that is django 1.11.1
 
@@ -20,3 +21,4 @@ The basic structure of the repo is completed(I(Mayank) used the most basic UI)
 	*Now we have to add the upload feature
 	*Provide a better UI
 	*Think about the storage of files
+
