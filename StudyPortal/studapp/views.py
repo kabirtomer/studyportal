@@ -1,11 +1,15 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 
 # Create your views here.
 from django.http import HttpResponse
 from .models import *
+
+from django.forms import ModelForm
+from studapp.forms import *
+from studapp.models import Document
 
 def index(request):
 	departments=Department.objects.order_by('dept')
@@ -41,3 +45,15 @@ def upload(request):
 	courses=Course_code.objects.order_by('code')
 	context={'departments':departments,'courses':courses}
         return render(request,'studapp/upload.html', context)
+####upload file
+def thanks(request):
+	return render(request,'studapp/thanks.html')
+def model_form_upload(request):
+	if request.method == 'POST':
+		form = DocumentForm(request.POST, request.FILES)
+		if form.is_valid():
+			form.save()
+			return redirect('thanks')
+	else:
+		form = DocumentForm()
+	return render(request, 'studapp/model_form_upload.html', {'form': form})

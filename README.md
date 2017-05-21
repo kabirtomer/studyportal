@@ -6,7 +6,8 @@ For usage:
 3. For admin page go to localhost:<port_number>/admin/
 
 -------------------------------------------------------------------------------------------------------------------------------------------
-
+I've added the actual upload feature which adds the files to media/documents/. I've also reworked the models such that the minors and majors and other displays the actual  files. I've added some sample files for APL100, go browse them using the website. Currently the workpattern is this, people contibute using the upload button, this dumps the file in media/document. using the admin website we add the papers from this folder. You can try yourself.
+-------------------------------------------------------------------------------------------------------------------------------------------
 We will work using python 2.7
 and latest version of django that is django 1.11.1
 
@@ -20,3 +21,4 @@ The basic structure of the repo is completed(I(Mayank) used the most basic UI)
 	*Now we have to add the upload feature
 	*Provide a better UI
 	*Think about the storage of files
+

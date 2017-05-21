@@ -6,21 +6,22 @@
 <br />
 <h3>Minor 1</h3>
 {% for exam in course.minor1_set.all %}
-<p class="p">{{ exam.paper }}</p>
+<!--<p class="p">{{ exam.paper }}</p>-->
+<a class='p' href={{exam.paper.url}}>{{exam.paper}}</a>
 {% endfor %}
 
 <h3>Minor 2</h3>
 {% for exam in course.minor2_set.all %}
-<p class="p">{{ exam.paper }}</p>
+<a class='p' href={{exam.paper.url}}>{{exam.paper}}</a>
 {% endfor %}
 
 <h3>Major</h3>
 {% for exam in course.major_set.all %}
-<p class="p">{{ exam.paper }}</p>
+<a class='p' href={{exam.paper.url}}>{{exam.paper}}</a>
 {% endfor %}
 
 <h3>Other</h3>
 {% for exam in course.other_set.all %}
-<p class="p">{{ exam.paper }}</p>
+<a class='p' href={{exam.paper.url}}>{{exam.paper}}</a>
 {% endfor %}
 {% endblock %}
