@@ -1,6 +1,11 @@
 {% load static %}
 <html>
 <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
 	<link type="text/css" rel="stylesheet" href="{% static 'studapp/style.css' %}"/>
 	<link href="https://fonts.googleapis.com/css?family=Lato|Open+Sans|Slabo+27px" rel="stylesheet">
 	<title>{% block title %}Home{% endblock %}</title>
@@ -9,25 +14,27 @@
   <div class="sidebar"> 
 	<a href="/studapp/"><h1>Study Portal</h1></a>
 	{% block sidebar %}
+	
 
 	<div class="input">
 	<form action="/studapp/view" id='course_with_code' method='get'>
-		
-	<select name="department" form="course_with_code">
+	<div class="form-group">	
+	<select class='form-control' name="department" form="course_with_code">
 		 <option value="0" selected="selected">Select a department</option>
 		 {% for dept in departments %}
 		 <option value= {{ dept.id }}>{{ dept.dept }}</option>
 		 {% endfor %}		 
 	</select>
 <!-- We have to change so that the second list is dynamically updated based on first one -->
-	<select name="course_code" form="course_with_code">
+	<select class='form-control' name="course_code" form="course_with_code">
 		 <option value="0" selected="selected">Select a course code</option>
 		 {% for course in courses %}
 		 <option value= {{ course.id }}>{{ course.code }}</option>
 		 {% endfor %}
- 	<input type="submit"></form></div>
+ 	<input type="submit" class="btn btn-success"></div></form></div>
 	{% endblock %}
-	<a href="/studapp/upload"><p class="upload">Upload a new file</p></a> 
+	<br></br>
+	<a href="/studapp/upload" class="btn btn-primary btn-lg">Upload a new file</a> 
   </div>
 	
   <div class="content"> 
