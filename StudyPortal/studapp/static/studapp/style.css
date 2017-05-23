@@ -12,9 +12,10 @@ body{
 }
 .sidebar, .content{
     /*background: #333; Removed*/
+	
     background-color: rgb(246, 248, 248);
-    border-radius: 2px;
-    border:px solid #777;
+    border-radius: none;
+    border:none;
 	background-repeat: repeat-y;
 	
 }
@@ -37,7 +38,7 @@ body{
 	background-color: rgb(246, 248, 248);
     /* width: 630px; Removed*/
 	margin-left: 29% ;/* Added */
-	padding: 50px 5% 5% 5%;
+	padding: 50px 5% 5% 60px;
 	background-repeat: repeat-y;
 }
 
@@ -107,7 +108,7 @@ font-size: 16px;
 padding: 5px;
 }
 
-h2,h3 {
+h1,h2,h3 {
 color: rgb(0,0,0);
 font-family: 'Slabo 27px', serif;
 }
@@ -162,19 +163,19 @@ body {
   font-weight: 400;  
 }
 .promos {
-  width: 800px;
+  width: 1050px;/* org 800 */
   margin: 0 auto;
   margin-top: 50px;
 }
 .promo {
-  width: 250px;
+  width: 350px;/* org 250 */
   background: #0F1012; 
   color: #f9f9f9;
   float: left;
 	height: 289px;
 }
 .promo:hover{
-  transform: scale(1.2);
+  transform: scale(1.6);
   box-shadow: 0 0 4px 1px rgba(20, 20, 20, 0.8);
 }
 .deal {
@@ -188,11 +189,11 @@ body {
   font-size: 25px;  
 }
 .deal span:last-of-type {
-  font-size: 15px;
+  font-size: 25px;
 }
 .promo .price {
   display: block;
-  width: 250px;  
+  width: 350px;  
   background: #292b2e;
   margin: 15px 0 10px 0;
   text-align: center;
@@ -201,23 +202,28 @@ body {
 }
 ul {
   display: block;
-  margin: 20px 0 10px 0;
+  margin: 10px 0 10px 0;
   padding: 0;
+	font-size: 17px;  
   list-style-type: none;
   text-align: center;
   color: #999999;
+	height: 98px;
+	overflow: auto;
 }
 li {
   display: block;
   margin: 10px 0 0 0;
 }
 button {
+	
   border: none;
   border-radius: 40px;
   background: #292b2e;
   color: #f9f9f9;
   padding: 10px 37px;
-  margin: 10px 0 20px 60px;
+  margin: 0px 0px 20px 110px;
+	
 }
 .scale{
   transform: scale(1.2);
@@ -228,4 +234,30 @@ button {
 }
 .scale .price {
   color: #64AAA4;
+}
+
+/****************scrollbar*/
+::-webkit-scrollbar {
+    width: 8px;
+	
+}
+/* this one hides the scrollbar in ul but still scrollable*/
+ul::-webkit-scrollbar {
+	display: none;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    /*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.8);*/ 
+    -webkit-border-radius: 10px;
+    background-color:#fff;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background:#666; 
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
 }

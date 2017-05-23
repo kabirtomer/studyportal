@@ -11,8 +11,9 @@
 	<title>{% block title %}Home{% endblock %}</title>
 </head>
 <body>
+<!--******SIDEBAR********-->
   <div class="sidebar"> 
-	<a href="/studapp/"><h1>Study Portal</h1></a>
+	<a href="/studapp/"><h1 style="color:white">Study Portal</h1></a>
 	{% block sidebar %}
 	
 
@@ -25,7 +26,7 @@
 		 <option value= {{ dept.id }}>{{ dept.dept }}</option>
 		 {% endfor %}		 
 	</select>
-<!-- We have to change so that the second list is dynamically updated based on first one -->
+	<!-- We have to change so that the second list is dynamically updated based on first one -->
 	<select class='form-control' name="course_code" form="course_with_code">
 		 <option value="0" selected="selected">Select a course code</option>
 		 {% for course in courses %}
@@ -38,17 +39,32 @@
 	<br></br>
 	<br></br>
 	<br></br>
-	<img src="{% static 'studapp/iitlogo.png' %}" alt="IITD Logo" height="320" width="320">
+	<!--<img src="{% static 'studapp/iitlogo.png' %}" alt="IITD Logo" height="320" width="320">-->
 	<h2 class="text-primary" style="color:#8c8c8c">Powered by IITD DevClub<h2>
   </div>
-	
+<!--***************** SIDEBAR DONE ****************-->
+<!--***************** CONTENT ****************-->
   <div class="content container"> 
-	{% block content %}
-
-
-
-
-<!--ADDITION-->
+	
+<!--***************** NAVIGATION****************-->
+{% block navbar %}
+<nav class="navbar navbar-inverse" style="position:fixed;left:29%;top:0px;width:100%;">
+  <div class="container-fluid">
+    <!--<div class="navbar-header">
+      <a class="navbar-brand" href="#">WebSiteName</a>
+    </div>-->
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="/studapp/">Home</a></li>
+      <!--<li><a href="#">Page 1</a></li>
+      <li><a href="#">Page 2</a></li>
+      <li><a href="#">Page 3</a></li>-->
+    </ul>
+  </div>
+</nav>
+{% endblock %}
+<!--***************** NAVIGATION BAR DONE ****************-->
+{% block content %}
+<!--CSS cards for courses-->
 {% for dept in departments %}
 <div class="promos">
 	
@@ -71,53 +87,11 @@
 </div>
 {% endfor %}
 
-<!--<div class="promos">
-	<div class="promo">
-  		<div class="deal">
-   			 <span>Premium</span>
-    			<span>This is really a good deal!</span>
-  		</div>
-  		<span class="price">$79</span>
-  			<ul class="features">
-  				  <li>Some great feature</li>
-  				  <li>Another super feature</li>
-  				  <li>And more...</li>   
- 			 </ul>
- 		 <button>Sign up</button>
-	</div>
-	<div class="promo">
- 		 <div class="deal">
-  			  <span>Plus</span>
-  			  <span>This is really a good deal!</span>
- 		 </div>
- 			 <span class="price">$89</span>
- 			 <ul class="features">
-  				  <li>Some great feature</li>
-  				  <li>Another super feature</li>
-  				  <li>And more...</li> 
-				  
-			  </ul>
-		  <button>Sign up</button>
-	</div>
 
-	<div class="promo" style='margin-left:0px'>
-  		<div class="deal">
-   			 <span>Basic</span>
-  	 		 <span>Basic membership</span>
-  		</div>
- 			 <span class="price">$69</span>
-  				<ul class="features">
-  				  <li>Choose the </li>
-  				  <li>We need moneyy</li>
-  				  <li>And more...</li>   
- 				 </ul>
- 		 <button>Sign up</button>
-		</div>
-</div> -->
-<!--ADDITION-->
+
 
 	<!--<h1 style="font-family:Monotype Corsiva">All Courses</h1>-->
-	<!--{% for dept in departments %}
+	<!--{% for dept in departments %}   THIS WAS THE ORIGINAL TABULAR REPRESENTATION. SAD FOR IT ITS no MORE
 		<table>
 			<tr>
 				<th>{{ dept.dept }}</th>
@@ -130,6 +104,7 @@
 			<br /></table>
 	{% endfor %}-->
 	{% endblock %}
+<!--*********CONTENT DONE**********-->
  </div>
 	<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
 	<script src="{% static 'studapp/jscript.js' %}"></script>

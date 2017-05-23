@@ -1,6 +1,21 @@
 {% extends 'studapp/index.html' %}
 {%block title%}{{ course.code }}{% endblock %}
 
+{% block navbar %}
+<nav class="navbar navbar-inverse" style="position:fixed;left:29%;top:0px;width:100%;">
+  <div class="container-fluid">
+    <!--<div class="navbar-header">
+      <a class="navbar-brand" href="#">WebSiteName</a>
+    </div>-->
+    <ul class="nav navbar-nav">
+      <li><a href="/studapp/">Home</a></li>
+      <li><a href="?department={{course.dept.id}}&course_code=0">{{course.dept.dept}}</a></li>
+      <li class='active'><a href="?department={{course.dept.id}}&course_code={{course.id}}">{{course.code}}</a></li>
+    </ul>
+  </div>
+</nav>
+{% endblock %}
+
 {% block content %}
 <h2>{{ course.code }}</h2>
 <br />

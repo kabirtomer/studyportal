@@ -1,0 +1,23 @@
+def gen(x):
+	lis=[]
+	for i in range(0,x/2):
+		lis+=[i+1]
+	lis+=[x/2+1]
+	for i in range(x/2,0,-1):
+		lis+=[i]
+	return lis
+t=input()
+for i in xrange(0,t):
+	l=input()
+	lis=raw_input().split()
+	for i in range(0,l):
+		lis[i]=int(lis[i])
+	flag=1
+	if l%2==0:
+		print 'no'
+		flag=0
+	if flag==1:
+		if lis==gen(l):
+			print 'yes'
+		else:
+			print 'no'
