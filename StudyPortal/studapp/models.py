@@ -62,6 +62,7 @@ class Other(models.Model):
 	paper= models.FileField()
 	def __str__(self):
 		return self.paper.name
+	
 ###uploaded unchecked document
 class Document(models.Model):
 	

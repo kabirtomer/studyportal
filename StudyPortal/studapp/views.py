@@ -45,6 +45,7 @@ def upload(request):
 	courses=Course_code.objects.order_by('code')
 	context={'departments':departments,'courses':courses}
         return render(request,'studapp/upload.html', context)
+
 ####upload file
 def thanks(request):
 	return render(request,'studapp/thanks.html')
