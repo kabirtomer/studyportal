@@ -44,21 +44,93 @@
 	
   <div class="content container"> 
 	{% block content %}
+
+
+
+
+<!--ADDITION-->
+{% for dept in departments %}
+<div class="promos">
+	
+	<div class="promo">
+  		<div class="deal">
+   			 <span>{{dept.dept}}</span>
+    			
+  		</div>
+  		<span class="price">{{dept.code}}</span>
+  			<ul class="features">
+					{% for course in dept.course_code_set.all%}
+					<li><a class="course" href="/studapp/view/?department={{ dept.id }}&course_code={{ course.id }}">{{ course.code }}</a></li>
+	  				 {% endfor %}  
+			
+					
+ 			 </ul>
+ 		 <button onclick="window.location.href='/studapp/view/?department={{ dept.id }}&course_code=0'">View All</button>
+	
+	
+</div>
+{% endfor %}
+
+<!--<div class="promos">
+	<div class="promo">
+  		<div class="deal">
+   			 <span>Premium</span>
+    			<span>This is really a good deal!</span>
+  		</div>
+  		<span class="price">$79</span>
+  			<ul class="features">
+  				  <li>Some great feature</li>
+  				  <li>Another super feature</li>
+  				  <li>And more...</li>   
+ 			 </ul>
+ 		 <button>Sign up</button>
+	</div>
+	<div class="promo">
+ 		 <div class="deal">
+  			  <span>Plus</span>
+  			  <span>This is really a good deal!</span>
+ 		 </div>
+ 			 <span class="price">$89</span>
+ 			 <ul class="features">
+  				  <li>Some great feature</li>
+  				  <li>Another super feature</li>
+  				  <li>And more...</li> 
+				  
+			  </ul>
+		  <button>Sign up</button>
+	</div>
+
+	<div class="promo" style='margin-left:0px'>
+  		<div class="deal">
+   			 <span>Basic</span>
+  	 		 <span>Basic membership</span>
+  		</div>
+ 			 <span class="price">$69</span>
+  				<ul class="features">
+  				  <li>Choose the </li>
+  				  <li>We need moneyy</li>
+  				  <li>And more...</li>   
+ 				 </ul>
+ 		 <button>Sign up</button>
+		</div>
+</div> -->
+<!--ADDITION-->
+
 	<!--<h1 style="font-family:Monotype Corsiva">All Courses</h1>-->
-	{% for dept in departments %}
+	<!--{% for dept in departments %}
 		<table>
 			<tr>
 				<th>{{ dept.dept }}</th>
 			</tr>
-			{% for course in dept.course_code_set.all %}
+			{% for course in dept.course_code_set.all%}
 			<tr>
 				<td><a class="course" href="/studapp/view/?department={{ dept.id }}&course_code={{ course.id }}">{{ course.code }}</a></td>
 			</tr>
 			{% endfor %}
 			<br /></table>
-	{% endfor %}
+	{% endfor %}-->
 	{% endblock %}
-  </div>
+ </div>
 	<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
 	<script src="{% static 'studapp/jscript.js' %}"></script>
 </body>
