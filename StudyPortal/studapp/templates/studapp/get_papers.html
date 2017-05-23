@@ -9,8 +9,10 @@
     </div>-->
     <ul class="nav navbar-nav">
       <li><a href="/studapp/">Home</a></li>
+	<li style="pointer-events: none;cursor: default;"><a href="/studapp/">></a></li>
       <li><a href="?department={{course.dept.id}}&course_code=0">{{course.dept.dept}}</a></li>
-      <li class='active'><a href="?department={{course.dept.id}}&course_code={{course.id}}">{{course.code}}</a></li>
+	<li style="pointer-events: none;cursor: default;"><a href="/studapp/">></a></li>
+      <li><a href="?department={{course.dept.id}}&course_code={{course.id}}">{{course.code}}</a></li>
     </ul>
   </div>
 </nav>
