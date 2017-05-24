@@ -10,15 +10,7 @@ body{
     padding:0;
 	
 }
-.sidebar, .content{
-    /*background: #333; Removed*/
-	
-    background-color: rgb(246, 248, 248);
-    border-radius: none;
-    border:none;
-	background-repeat: repeat-y;
-	
-}
+
 .sidebar{
 	width: 29%;
     height: 100%;
@@ -36,6 +28,7 @@ body{
 	width:71%;
 	height:100%;
 	background-color: rgb(246, 248, 248);
+	
     /* width: 630px; Removed*/
 	margin-left: 29% ;/* Added */
 	padding: 50px 5% 5% 60px;
@@ -170,14 +163,15 @@ body {
 }
 .promo {
   width: 350px;/* org 250 */
-  background: #0F1012; 
+ /* background: #0f1012; original */
+	background: #1d1d1e;
   color: #f9f9f9;
   float: left;
 	height: 289px;
 	
 }
 .promo:hover{
-  transform: scale(1.6);
+  transform: scale(1.2);
   box-shadow: 0 0 4px 1px rgba(20, 20, 20, 0.8);
 }
 .deal {
@@ -246,6 +240,10 @@ button {
 /* this one hides the scrollbar in ul but still scrollable*/
 ul::-webkit-scrollbar {
 	display: none;
+}
+/*on mouse hover, this class makes the scrollbar visible*/
+ul:hover::-webkit-scrollbar {
+	display: unset;
 }
 
 /* Track */
