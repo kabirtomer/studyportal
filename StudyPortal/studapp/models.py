@@ -25,6 +25,7 @@ def upload_to(path):
 
 class Department(models.Model):
 	dept=models.CharField(max_length=50)
+	code=models.CharField(max_length=3)
 	def __str__(self):
 		return self.dept
 
