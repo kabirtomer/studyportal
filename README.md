@@ -17,8 +17,8 @@ pip install -r requirements.txt
 superuser credentials
 both username and password same as iitddevclub
 
-The basic structure of the repo is completed(I(Mayank) used the most basic UI)
-	*Now we have to add the upload feature
-	*Provide a better UI
-	*Think about the storage of files
+TO DO:
+1. Dynamically update second select box of course codes based on department select box
+2. Think about actual storage
+3. add all subjects and real papers
 
