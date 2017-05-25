@@ -28,8 +28,11 @@ def display(request):
 	all_departments=Department.objects.order_by('dept')
 	all_courses=Course_code.objects.order_by('code')
 	department_id=request.GET.get('department','None')
-	course_code_id=request.GET.get('course_code','None')
-	
+	#course_code_id=request.GET.get('course_code','None')
+	try:
+		course_code_id=Course_code.objects.get(code=request.GET.get('course_code','None')).id
+	except:
+		course_code_id='0'
 	if department_id=='0' and course_code_id=='0':
 		return render(request,'studapp/index.html',{'departments':all_departments,'courses':all_courses})
 	elif course_code_id=='0':

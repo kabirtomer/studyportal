@@ -1,20 +1,22 @@
-
-
-/*
-$("#select1").change(function() {
-  if ($(this).data('options') === undefined) {
-    Taking an array of all options-2 and kind of embedding it on the select1
-    $(this).data('options', $('#select2 option').clone());
-  }
-  var id = $(this).val();
-  var options = $(this).data('options').filter('[value=' + id + ']');
-  $('#select2').html(options);
-});*/
-
 var $select1 = $( '#select1' ),
-		$select2 = $( '#select2' ),
-    $options = $select2.find( 'option' );
+		$select2 = $( '#select2' );
     
 $select1.on( 'change', function() {
-	$select2.html( $options.filter( '[value="' + this.value + '"]' ) );
+	if( $("#select1 option:selected").text() =='Select a department'){
+		$select2.val('');
+	}
+	else{
+	$select2.val($("#select1 option:selected").text());
+	}	
+
+/* For the dropdown */
+	$('#select2').focus();
+    	$('#select2').trigger("click");
+
+	var e = jQuery.Event("keydown");
+e.which = 65; // # Some key code value
+$("#select2").trigger(e);
+
 } ).trigger( 'change' );
+
+

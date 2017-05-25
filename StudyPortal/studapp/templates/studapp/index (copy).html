@@ -7,7 +7,6 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	
 	<link type="text/css" rel="stylesheet" href="{% static 'studapp/style.css' %}"/>
-	
 	<link href="https://fonts.googleapis.com/css?family=Lato|Open+Sans|Slabo+27px" rel="stylesheet">
 	<title>{% block title %}Home{% endblock %}</title>
 </head>
@@ -20,25 +19,20 @@
 
 	<div class="input">
 	<form action="/studapp/view" id='course_with_code' method='get'>
-	
-	<div class="form-group">
-	<label for="course_code" style="color:white">Department</label>		
+	<div class="form-group">	
 	<select class='form-control' name="department" form="course_with_code" id='select1'>
 		 <option value="0" selected="selected">Select a department</option>
 		 {% for dept in departments %}
-		 <option value= {{ dept.id }}>{{ dept.code }}</option>
+		 <option value= {{ dept.id }}>{{ dept.dept }}</option>
 		 {% endfor %}		 
 	</select>
-	<!-- DONE We have to change so that the second list is dynamically updated based on first one -->
-	<label for="course_code" style="color:white">Course Code</label>	
-	<input type='text' style='margin:0px' class='form-control' list='course_code' name="course_code" form="course_with_code" autocomplete="off" id='select2' placeholder="Search or use the dropdown" >
-	<datalist id="course_code">
-		
+	<!-- We have to change so that the second list is dynamically updated based on first one -->
+	<select class='form-control' name="course_code" form="course_with_code" id='select2'>
+		 <option value="0" selected="selected">Select a course code</option>
 		 {% for course in courses %}
-		 <option   value="{{course.code}}">{{ course.code }}</option>
+		 <option value= {{ course.id }}>{{ course.code }}</option>
 		 {% endfor %}
-	</datalist>
- 	<input  type="submit" class="btn btn-success btn-lg"></div></form></div>
+ 	<input type="submit" class="btn btn-success btn-lg"></div></form></div>
 	{% endblock %}
 	<br/>
 	<br/>
@@ -117,6 +111,6 @@
 	{% block js %}
 	<script src="{% static 'studapp/index.js' %}"></script>
 	{% endblock %}
-	<script src="{% static 'studapp/list_update.js' %}"></script>
+	<!--<script src="{% static 'studapp/list_update.js' %}"></script>-->
 </body>
 </html>

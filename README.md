@@ -18,7 +18,6 @@ superuser credentials
 both username and password same as iitddevclub
 
 TO DO:
-1. Dynamically update second select box of course codes based on department select box
-2. Think about actual storage
-3. add all subjects and real papers
+1. Think about actual storage
+2. add all subjects and real papers
 
