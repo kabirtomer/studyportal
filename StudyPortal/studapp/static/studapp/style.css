@@ -166,7 +166,7 @@ body {
 .promo {
   width: 20vw;/* org 250 */
  /* background: #0f1012; original */
-	background: #1d1d1e;
+	background: #d9d9d9;
   color: #f9f9f9;
   float: left;
   margin: 2vh 1vw;
@@ -225,12 +225,11 @@ button {
   font-size: 1vw;
   border: none;
   border-radius: 2vw;
-  background: #303036;
+  background: #006e90;
   color: #f9f9f9;
   padding: 0.5vw 2vw;
   width: 8vw;
   margin: 1vh 6vw 1vh 6vw;
-	
 }
 
 /*
