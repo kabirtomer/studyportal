@@ -33,7 +33,7 @@ background-image: url("concrete_wall.jpg");
 
     /* width: 630px; Removed*/
 	margin-left: 29vw ;/* Added */
-	padding: 50px 5% 5% 60px;
+	/*padding: 50px 5% 5% 60px;*/
 	background-repeat: repeat-y;
 }
 
@@ -151,7 +151,7 @@ html {
   background: rgb(246, 248, 248);
 }
 body {
-  padding: 40px;
+  margin-top:50px;
   font-family: 'Open Sans', sans-serif;
   font-size: 14px;
   font-weight: 400;  
