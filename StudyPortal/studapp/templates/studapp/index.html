@@ -46,7 +46,7 @@
 	<a href="/studapp/upload" class="btn btn-primary btn-lg" style="font-size:1.6vw;">Upload a new file</a> 
 	
 <!--<img src="{% static 'studapp/iitlogo.png' %}" alt="IITD Logo" height="320" width="320">-->
-	<h2 class="text-primary" style="color:#8c8c8c; font-size:1.5vw; position: fixed; bottom: 10vh; margin-top: 10vh;">Powered by IITD DevClub<h2>
+	<h2 class="text-primary" style="color:#303036; font-size:1.5vw; position: fixed; bottom: 10vh; margin-top: 10vh;">Powered by IITD DevClub<h2>
   </div>
 <!--***************** SIDEBAR DONE ****************-->
 
@@ -57,7 +57,7 @@
 <!--***************** NAVIGATION****************-->
 {% block navbar %}
 
-<nav class="navbar navbar-inverse" style="position:fixed;top:0px;width:71vw;border-radius:0px;left:29vw;">
+<nav class="navbar navbar-inverse" style="position:fixed;top:0px;width:71vw;border-radius:0px;left:29vw;z-index: 2;">
   <div class="container-fluid">
     <!--<div class="navbar-header">
       <a class="navbar-brand" href="#">WebSiteName</a>
@@ -76,27 +76,22 @@
 <!--***************** NAVIGATION BAR DONE ****************-->
 {% block content %}
 <!--CSS cards for courses-->
-{% for dept in departments %}
 <div class="promos">
-	
+{% for dept in departments %}
 	<div class="promo">
   		<div class="deal">
-   			 <span>{{dept.dept}}</span>
+   			 <span style="font-size: 1.4vw;">{{dept.dept}}<br/>({{dept.code}})</span>
     			
   		</div>
-  		<span class="price">{{dept.code}}</span>
   			<ul class="features">
 					{% for course in dept.course_code_set.all%}
 					<li><a class="course" href="/studapp/view/?department={{ dept.id }}&course_code={{ course.code }}">{{ course.code }}</a></li>
-	  				 {% endfor %}  
-			
-					
+	  				 {% endfor %}  					
  			 </ul>
  		 <button onclick="window.location.href='/studapp/view/?department={{ dept.id }}&course_code=0'">View All</button>
-	
-	
-</div>
+	</div>
 {% endfor %}
+</div>
 
 
 
