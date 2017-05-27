@@ -17,7 +17,7 @@ from django.conf.urls import include, url
 from django.contrib import admin
 
 urlpatterns = [
-    url(r'^studapp/', include('studapp.urls')),
+    url(r'^studapp/', include('studapp.urlsl')),
     url(r'^admin/', admin.site.urls),
 ]
 #####upload
