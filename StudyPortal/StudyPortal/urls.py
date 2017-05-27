@@ -18,6 +18,7 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^studapp/', include('studapp.urls')),
+    url(r'^studapp/light/', include('studapp.urls')),
     url(r'^admin/', admin.site.urls),
 ]
 #####upload

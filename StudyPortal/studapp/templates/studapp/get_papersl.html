@@ -1,0 +1,60 @@
+{% extends 'studapp/indexl.html' %}
+{% load static %}
+{%block title%}{{ course.code }}{% endblock %}
+
+{% block navbar %}
+<nav class="navbar navbar-inverse" style="position:fixed;top:0px;width:71vw;border-radius:0px;left:29vw;">
+  <div class="container-fluid">
+    <!--<div class="navbar-header">
+      <a class="navbar-brand" href="#">WebSiteName</a>
+    </div>-->
+    <ol class="nav navbar-nav" style='font-size:1.5vw;padding-bottom: 5px;'>
+      <li style="display: inline-block;"><a href="/studapp/light/">Home</a></li>
+<li style="pointer-events: none;cursor: default; display: inline-block;" class='nav_li'><a href="/studapp/light/">></a></li>
+<li style="display: inline-block;"><a href="?department={{course.dept.id}}&course_code=0">{{course.dept.dept}}</a></li>
+<li style="pointer-events: none;cursor: default;display: inline-block;" class='nav_li'><a href="/studapp/light/">></a></li>
+	<li class='nav_li' style="display: inline-block;"><a href="?department={{course.dept.id}}&course_code={{course.code}}">{{course.code}}</a></li>
+      <!--<li><a href="#">Page 1</a></li>
+      <li><a href="#">Page 2</a></li>
+      <li><a href="#">Page 3</a></li>-->
+    </ol>
+  </div>
+</nav>
+
+<!--<ol class="breadcrumb" style="background-color:#000;position:fixed;left:29vw;top:0px;width:71vw;font-size:1.5vw;">
+	<li><a href="/studapp/">Home</a></li>
+	<li><a href="?department={{course.dept.id}}&course_code=0">{{course.dept.dept}}</a></li>
+	<li class='nav_li'><a href="?department={{course.dept.id}}&course_code={{course.id}}">{{course.code}}</a></li>
+</ol>-->
+
+{% endblock %}
+
+{% block content %}
+<h2 id='code'>{{ course.code }}</h2>
+<br />
+<h3>Minor 1</h3>
+<span id='papers'>
+{% for exam in course.minor1_set.all %}
+<!--<p class="p">{{ exam.paper }}</p>-->
+<a class='p' href={{exam.paper.url}}>{{exam.paper}}</a>
+{% endfor %}
+
+<h3>Minor 2</h3>
+{% for exam in course.minor2_set.all %}
+<a class='p' href={{exam.paper.url}}>{{exam.paper}}</a>
+{% endfor %}
+
+<h3>Major</h3>
+{% for exam in course.major_set.all %}
+<a class='p' href={{exam.paper.url}}>{{exam.paper}}</a>
+{% endfor %}
+
+<h3>Other</h3>
+{% for exam in course.other_set.all %}
+<a class='p' href={{exam.paper.url}}>{{exam.paper}}</a>
+{% endfor %}
+</span>
+{% endblock %}
+{% block js %}
+	<script src="{% static 'studapp/get_papers.js' %}"></script>
+	{% endblock %}

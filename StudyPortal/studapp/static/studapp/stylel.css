@@ -20,11 +20,9 @@ body{
     top:0; /* Added */
     position: fixed; /*Changed from absolute*/
 	padding: 1%;
-
-	/*background-color: #160c28;*/
-background-image: url("concrete_wall.jpg");
+	/*background-color: #1a9ccd;*/
+	background-image: url("blue_2.jpg");
 	background-repeat: repeat-y;
-
 }
 .content{
 	width:70vw;
@@ -110,11 +108,11 @@ font-family: 'Slabo 27px', serif;
 }
 
 h2 {
-font-size: 1.4vw;
+font-size: 1.5vw;
 }
 
 h3 {
-font-size: 1.2vw;
+font-size: 1.4vw;
 width: 300px;
 }
 
@@ -153,7 +151,6 @@ html {
   background: rgb(244, 246, 246);
 }
 body {
-
   font-family: 'Open Sans', sans-serif;
   font-size: 1vw;
   font-weight: 400;  
@@ -169,7 +166,7 @@ body {
 .promo {
   width: 20vw;/* org 250 */
  /* background: #0f1012; original */
-	background: #1d1d1e;
+	background: #d9d9d9;
   color: #f9f9f9;
   float: left;
   margin: 2vh 1vw;
@@ -228,12 +225,11 @@ button {
   font-size: 1vw;
   border: none;
   border-radius: 2vw;
-  background: #303036;
+  background: #006e90;
   color: #f9f9f9;
   padding: 0.5vw 2vw;
   width: 8vw;
   margin: 1vh 6vw 1vh 6vw;
-	
 }
 
 /*
