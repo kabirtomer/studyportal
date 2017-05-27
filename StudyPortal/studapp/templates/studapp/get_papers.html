@@ -3,12 +3,12 @@
 {%block title%}{{ course.code }}{% endblock %}
 
 {% block navbar %}
-<!--<nav class="navbar navbar-inverse" style="position:fixed;left:29%;top:0px;width:100%;">
+<nav class="navbar navbar-inverse" style="position:fixed;left:29%;top:0px;width:100%;">
   <div class="container-fluid">
-    <div class="navbar-header">
+    <!--<div class="navbar-header">
       <a class="navbar-brand" href="#">WebSiteName</a>
-    </div>
-    <ul class="nav navbar-nav">
+    </div>-->
+    <ul class="nav navbar-nav" style='font-size:1.5vw;'>
       <li><a href="/studapp/">Home</a></li>
 	<li style="pointer-events: none;cursor: default;"><a href="/studapp/">></a></li>
       <li><a href="?department={{course.dept.id}}&course_code=0">{{course.dept.dept}}</a></li>
@@ -16,13 +16,13 @@
       <li class='nav_li'><a href="?department={{course.dept.id}}&course_code={{course.id}}">{{course.code}}</a></li>
     </ul>
   </div>
-</nav>-->
+</nav>
 
-<ol class="breadcrumb" style="background-color:#000;position:fixed;left:29vw;top:0px;width:71vw;font-size:1.5vw;">
+<!--<ol class="breadcrumb" style="background-color:#000;position:fixed;left:29vw;top:0px;width:71vw;font-size:1.5vw;">
 	<li><a href="/studapp/">Home</a></li>
 	<li><a href="?department={{course.dept.id}}&course_code=0">{{course.dept.dept}}</a></li>
 	<li class='nav_li'><a href="?department={{course.dept.id}}&course_code={{course.id}}">{{course.code}}</a></li>
-</ol>
+</ol>-->
 
 {% endblock %}
 
