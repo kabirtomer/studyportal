@@ -1,23 +1,33 @@
 {% extends 'studapp/index.html' %}
+{% load static %}
 {%block title%}Thanks{% endblock %}
 {% block navbar %}
-<nav class="navbar navbar-inverse" style="position:fixed;left:29%;top:0px;width:100%;">
+<!--<nav class="navbar navbar-inverse" style="position:fixed;left:29%;top:0px;width:100%;">
   <div class="container-fluid">
-    <!--<div class="navbar-header">
+    <div class="navbar-header">
       <a class="navbar-brand" href="#">WebSiteName</a>
-    </div>-->
+    </div>
     <ul class="nav navbar-nav">
       <li><a href="/studapp/">Home</a></li>
 	<li style="pointer-events: none;cursor: default;"><a href="/studapp/">></a></li>
       <li><a href="/studapp/upload/">Upload</a></li>
-	<li style="pointer-events: none;cursor: default;"><a href="/studapp/">></a></li>
-      <li><a href="/studapp/thanks/">Thanks</a></li>
-      <!--<li><a href="#">Page 3</a></li>-->
+	<li style="pointer-events: none;cursor: default;" class='nav_li'><a href="/studapp/">></a></li>
+      <li class='nav_li'><a href="/studapp/thanks/">Thanks</a></li>
+      <li><a href="#">Page 3</a></li>
     </ul>
   </div>
-</nav>
+</nav>-->
+
+<ol class="breadcrumb" style="background-color:#000;position:fixed;left:29vw;top:0px;width:71vw;font-size:1.5vw;">
+	<li><a href="/studapp/">Home</a></li>
+	<li class='active'><a href="/studapp/thanks/">Thanks</a></li>
+</ol>
+
 {% endblock %}
 {% block content %}
-<h2>Thank you for uploading.</h2>
-<h2> Our experts would soon put it on the website after scrutinising it.</h2>
+<h2 id='h2_1'>Thank you for uploading.</h2>
+<h2 id='h2_2'> Our experts would soon put it on the website after scrutinising it.</h2>
 {% endblock %}
+{% block js %}
+	<script src="{% static 'studapp/thanks.js' %}"></script>
+	{% endblock %}

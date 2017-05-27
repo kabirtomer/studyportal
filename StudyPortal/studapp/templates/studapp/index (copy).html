@@ -7,45 +7,41 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	
 	<link type="text/css" rel="stylesheet" href="{% static 'studapp/style.css' %}"/>
-	
 	<link href="https://fonts.googleapis.com/css?family=Lato|Open+Sans|Slabo+27px" rel="stylesheet">
-	<title>{% block title %}StudyPortal-Home{% endblock %}</title>
+	<title>{% block title %}Home{% endblock %}</title>
 </head>
 <body>
 <!--******SIDEBAR********-->
   <div class="sidebar"> 
-	<a style="text-decoration:none" href="/studapp/"><h1 style="color:white; font-size:3vw;">Study Portal</h1></a>
+	<a style="text-decoration:none" href="/studapp/"><h1 style="color:white">Study Portal</h1></a>
 	{% block sidebar %}
 	
 
 	<div class="input">
 	<form action="/studapp/view" id='course_with_code' method='get'>
-	
-	<div class="form-group">
-	<label for="course_code" style="color:white;font-size: 1.2vw;">Department</label>		
-	<select class='form-control' name="department" form="course_with_code" id='select1' style="font-size: 1.1vw;">
+	<div class="form-group">	
+	<select class='form-control' name="department" form="course_with_code" id='select1'>
 		 <option value="0" selected="selected">Select a department</option>
 		 {% for dept in departments %}
-		 <option value= {{ dept.id }}>{{ dept.code }}</option>
+		 <option value= {{ dept.id }}>{{ dept.dept }}</option>
 		 {% endfor %}		 
 	</select>
-	<!-- DONE We have to change so that the second list is dynamically updated based on first one -->
-	<label for="course_code" style="color:white; font-size: 1.2vw;">Course Code</label>	
-	<input type='text' style='margin:0px;font-size: 1.1vw;' class='form-control' list='course_code' name="course_code" form="course_with_code" autocomplete="off" id='select2' placeholder="Search or use the dropdown" >
-	<datalist id="course_code">
-		
+	<!-- We have to change so that the second list is dynamically updated based on first one -->
+	<select class='form-control' name="course_code" form="course_with_code" id='select2'>
+		 <option value="0" selected="selected">Select a course code</option>
 		 {% for course in courses %}
-		 <option   value="{{course.code}}">{{ course.code }}</option>
+		 <option value= {{ course.id }}>{{ course.code }}</option>
 		 {% endfor %}
-	</datalist>
- 	<input  type="submit" class="btn btn-success btn-lg" style="font-size:1.2vw;"></div></form></div>
+ 	<input type="submit" class="btn btn-success btn-lg"></div></form></div>
 	{% endblock %}
 	<br/>
 	<br/>
-	<a href="/studapp/upload" class="btn btn-primary btn-lg" style="font-size:1.6vw;">Upload a new file</a> 
-	
-<!--<img src="{% static 'studapp/iitlogo.png' %}" alt="IITD Logo" height="320" width="320">-->
-	<h2 class="text-primary" style="color:#8c8c8c; font-size:1.5vw; position: fixed; bottom: 10vh; margin-top: 10vh;">Powered by IITD DevClub<h2>
+	<a href="/studapp/upload" class="btn btn-primary btn-lg">Upload a new file</a> 
+	<br></br>
+	<br></br>
+	<br></br>
+	<!--<img src="{% static 'studapp/iitlogo.png' %}" alt="IITD Logo" height="320" width="320">-->
+	<h2 class="text-primary" style="color:#8c8c8c">Powered by IITD DevClub<h2>
   </div>
 <!--***************** SIDEBAR DONE ****************-->
 <!--***************** CONTENT ****************-->
@@ -53,25 +49,19 @@
 	
 <!--***************** NAVIGATION****************-->
 {% block navbar %}
-
-<!--<nav class="navbar navbar-inverse" style="position:fixed;left:29vw;top:0px;width:100%;">
+<nav class="navbar navbar-inverse" style="position:fixed;left:29%;top:0px;width:100%;">
   <div class="container-fluid">
-    <div class="navbar-header">
+    <!--<div class="navbar-header">
       <a class="navbar-brand" href="#">WebSiteName</a>
-    </div>
+    </div>-->
     <ul class="nav navbar-nav">
       <li><a href="/studapp/">Home</a></li>
-      <li><a href="#">Page 1</a></li>
+      <!--<li><a href="#">Page 1</a></li>
       <li><a href="#">Page 2</a></li>
-      <li><a href="#">Page 3</a></li>
+      <li><a href="#">Page 3</a></li>-->
     </ul>
   </div>
-</nav>-->
-
-<ol class="breadcrumb" style="background-color:#000;position:fixed;left:29vw;top:0px;width:71vw;font-size:1.5vw;">
-	<li><a href="/studapp/">Home</a></li>
-</ol>
-
+</nav>
 {% endblock %}
 <!--***************** NAVIGATION BAR DONE ****************-->
 {% block content %}
@@ -121,6 +111,6 @@
 	{% block js %}
 	<script src="{% static 'studapp/index.js' %}"></script>
 	{% endblock %}
-	<script src="{% static 'studapp/list_update.js' %}"></script>
+	<!--<script src="{% static 'studapp/list_update.js' %}"></script>-->
 </body>
 </html>

@@ -1,27 +1,39 @@
 {% extends 'studapp/index.html' %}
+{% load static %}
 {%block title%}{{ department.dept }}{% endblock %}
 
 {% block navbar %}
-<nav class="navbar navbar-inverse" style="position:fixed;left:29%;top:0px;width:100%;">
+<!--<nav class="navbar navbar-inverse" style="position:fixed;left:29%;top:0px;width:100%;">
   <div class="container-fluid">
-    <!--<div class="navbar-header">
+    <div class="navbar-header">
       <a class="navbar-brand" href="#">WebSiteName</a>
-    </div>-->
+    </div>
     <ul class="nav navbar-nav">
       <li><a href="/studapp/">Home</a></li>
-      <li style="pointer-events: none;cursor: default;"><a href="/studapp/">></a></li>
-      <li><a href="?department={{department.id}}&course_code=0">{{department.dept}}</a></li>
+      <li style="pointer-events: none;cursor: default;" class='nav_li'><a href="/studapp/">></a></li>
+      <li class='nav_li'><a href="?department={{department.id}}&course_code=0">{{department.dept}}</a></li>
       
     </ul>
   </div>
-</nav>
+</nav>-->
+
+<ol class="breadcrumb" style="background-color:#000;position:fixed;left:29vw;top:0px;width:71vw;font-size:1.5vw;">
+	<li><a href="/studapp/">Home</a></li>
+	<li class='nav_li'><a href="?department={{department.id}}&course_code=0">{{department.dept}}</a></li>
+</ol>
+
 {% endblock %}
 
 {% block content %}
-<h1>{{ department.dept }}</h1>
-<h2>Course List</h2>
+<h1 class='department'>{{ department.dept }}</h1>
+<h2 class='course_list'>Course List</h2>
+<span class='code' >
 {% for course in department.course_code_set.all %}
 <a href="/studapp/view/?department={{ department.id }}&course_code={{ course.id }}"><h3>{{ course.code }}</h3></a>
 <br></br>
 {% endfor %}
+</span>
+{% endblock %}
+{% block js %}
+	<script src="{% static 'studapp/get_course_codes.js' %}"></script>
 {% endblock %}
