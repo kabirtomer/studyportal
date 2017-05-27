@@ -20,9 +20,9 @@ body{
     top:0; /* Added */
     position: fixed; /*Changed from absolute*/
 	padding: 1%;
-	background-color: #160c28;
-	/*background-image: url("concrete_wall.jpg");
-	background-repeat: repeat-y;*/
+	/*background-color: #160c28;*/
+background-image: url("concrete_wall.jpg");
+	background-repeat: repeat-y;
 }
 .content{
 	width:71vw;
