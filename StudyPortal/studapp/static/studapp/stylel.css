@@ -34,7 +34,7 @@ body{
     /* width: 630px; Removed*/
 	margin-left: 29vw ;/* Added */
 	/*padding: 50px 5% 5% 60px;*/
-	background-repeat: repeat-y;
+	/*background-repeat: repeat-y;*/
 }
 
 a{
@@ -68,20 +68,17 @@ border: 1px solid rgb(0,50,112);
 position: relative;
 margin-bottom: 20px;
 }
-
 td {
 padding: 5px 5%;
 font-family: Lato;
 font-size: 18px;
 }
-
 th{
 font-family: Calibri;
 font-size: 20px;
 background-color: White;
 margin: 5px;
 }
-
 tr{
 color: rgb(0,50,112);
 }
@@ -157,7 +154,6 @@ body {
 }
 .promos {
   width: 67vw;
-  background: #303036;
 /* org 800 */
   /*margin: 0 auto;
   margin-top: 50px;
@@ -166,12 +162,17 @@ body {
 .promo {
   width: 20vw;/* org 250 */
  /* background: #0f1012; original */
-	background: #d9d9d9;
+	background-color: #d9d9d9;
   color: #f9f9f9;
   float: left;
   margin: 2vh 1vw;
   min-height: 37vh;
   max-height: 40vh;
+}
+
+.navbar-inverse{
+  background-color: #303036;
+  font-color: #000;
 }
 
 .promo:hover{
