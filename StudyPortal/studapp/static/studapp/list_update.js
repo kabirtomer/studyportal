@@ -6,7 +6,9 @@ $select1.on( 'change', function() {
 		$select2.val('');
 	}
 	else{
-	$select2.val($("#select1 option:selected").text());
+	var m = $("#select1 option:selected").text().indexOf('(');
+	var n = $("#select1 option:selected").text().indexOf(')');
+	$select2.val($("#select1 option:selected").text().substring(m+1,n));
 	}	
 
 /* For the dropdown */

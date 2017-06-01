@@ -42,7 +42,7 @@ def display(request):
 	department_id=request.GET.get('department','None')
 	#course_code_id=request.GET.get('course_code','None')
 	try:
-		course_code_id=Course_code.objects.get(code=request.GET.get('course_code','None')).id
+		course_code_id=Course_code.objects.get(code=request.GET.get('course_code','None').upper()).id
 	except:
 		course_code_id='0'
 	if department_id=='0' and course_code_id=='0':
@@ -61,7 +61,7 @@ def displayl(request):
 	department_id=request.GET.get('department','None')
 	#course_code_id=request.GET.get('course_code','None')
 	try:
-		course_code_id=Course_code.objects.get(code=request.GET.get('course_code','None')).id
+		course_code_id=Course_code.objects.get(code=request.GET.get('course_code','None').upper()).id
 	except:
 		course_code_id='0'
 	if department_id=='0' and course_code_id=='0':
