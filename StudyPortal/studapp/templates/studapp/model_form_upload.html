@@ -28,7 +28,9 @@
 {% block content %}
 	<br></br>
 <span id='form'>
+<p>Note: In case you upload a book, tut or something other than exam paper, leave the sem and year blank</p>
   <form style="color: black; font-size:200%;" method="post" enctype="multipart/form-data">
+
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Upload</button>

@@ -71,7 +71,7 @@ class Document(models.Model):
 	course_code = models.CharField(max_length=6, blank=True,help_text="Eg. APL100")
 	sem = models.CharField(max_length=20, blank=True,help_text="Eg. 1")
 	year = models.CharField(max_length=20, blank=True,help_text="Eg. 2016-17")	
-	type_exam = models.CharField(max_length=10, blank=True,help_text="Eg. minor1")
+	type_exam = models.CharField(max_length=10, blank=True,help_text="Eg. minor1/Tut/Book")
 	document = models.FileField(upload_to=upload_to('documents/'))
 	uploaded_at = models.DateTimeField(auto_now_add=True)
 	##########
