@@ -73,7 +73,7 @@ def displayl(request):
 	else:
 		course=Course_code.objects.get(pk=course_code_id)
 		return render(request,'studapp/get_papersl.html',{'course':course,'departments':all_departments,'courses':all_courses})
-
+'''
 def upload(request):
         departments=Department.objects.order_by('dept')
 	courses=Course_code.objects.order_by('code')
@@ -84,7 +84,7 @@ def uploadl(request):
         departments=Department.objects.order_by('dept')
 	courses=Course_code.objects.order_by('code')
 	context={'departments':departments,'courses':courses}
-        return render(request,'studapp/uploadl.html', context)
+        return render(request,'studapp/uploadl.html', context)'''
 
 ####upload file
 def thanks(request):
@@ -108,7 +108,7 @@ def model_form_uploadl(request):
 		form = DocumentForm(request.POST, request.FILES)
 		if form.is_valid():
 			form.save()
-			return redirect('thanks')
+			return redirect('thanksl')
 	else:
 		form = DocumentForm()
 	return render(request, 'studapp/model_form_uploadl.html', {'form': form})

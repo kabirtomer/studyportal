@@ -55,6 +55,12 @@
 {% for exam in course.other_set.all %}
 <a class='p' href={{exam.paper.url}}>{{exam.paper}}</a>
 {% endfor %}
+
+<h3>Check</h3>
+{% for exam in course.document_set.all %}
+<a class='p' href={{exam.document.url}}>{{exam.document}}</a>
+{% endfor %}
+
 </span>
 {% endblock %}
 {% block js %}
