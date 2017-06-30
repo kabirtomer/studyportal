@@ -280,6 +280,15 @@ border: 2px solid #006e90;
 border-radius: 5px;
 }
 
+.uploadform span, .uploadform input {
+font-size: 0.75em;
+}
+
+.uploadform label {
+width: 10vw;
+font-size: 0.75em;
+}
+
 @media (max-width:900px)
 {
     .dept-title {

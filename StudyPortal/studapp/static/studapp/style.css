@@ -291,6 +291,15 @@ font-size: 1.5em;
 color: white;
 }
 
+.uploadform span, .uploadform input {
+font-size: 0.75em;
+}
+
+.uploadform label {
+width: 10vw;
+font-size: 0.75em;
+}
+
 @media (max-width:900px)
 {
     .dept-title {

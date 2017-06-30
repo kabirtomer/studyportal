@@ -26,17 +26,17 @@
 {% endblock %}
 
 {% block content %}
-	<br></br>
+  <br></br>
 <span id='form'>
-<p>Note: In case you upload a book, tut or something other than exam paper, leave the sem and year blank</p>
-  <form style="color: black; font-size:200%;" method="post" enctype="multipart/form-data">
-
+<p>Note: In case you upload a book, tut or something other than exam paper, leave the sem and year blank.</p>
+<p>Important Instruction: Please take care to upload the file with an appropriate name.</p>
+  <form style="color: black; font-size:150%;" method="post" enctype="multipart/form-data" class="uploadform">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Upload</button>
   </form>
 {% endblock %}
 {% block js %}
-	<script src="{% static 'studapp/upload.js' %}"></script>
-</span>	
+  <script src="{% static 'studapp/upload.js' %}"></script>
+</span> 
 {% endblock %}
