@@ -7,11 +7,12 @@ import hashlib
 import datetime
 import os
 from functools import partial
+from django.http import HttpResponse
 
 def _update_filename(instance, filename, path):
 	path = path
 
-	filename = instance.course_code+'_'+instance.year+'_sem'+instance.sem+'_'+instance.type_exam+'.pdf'
+	filename = instance.course_code+'_'+instance.year+'_sem'+instance.sem+'_'+instance.type_exam+'_name:'+instance.document.name[0:-4]+instance.document.name[-4:]
 
 	return os.path.join(path, filename)
 
@@ -76,5 +77,5 @@ class Document(models.Model):
 	uploaded_at = models.DateTimeField(auto_now_add=True)
 	##########
 	def __str__(self):
-		return self.course_code+'_'+self.year+'_sem'+self.sem+'_'+self.type_exam+'.pdf'
+		return self.course_code+'_'+self.year+'_sem'+self.sem+'_'+self.type_exam+'_name:'+self.document.name[0:-4]+self.document.name[-4:]
 

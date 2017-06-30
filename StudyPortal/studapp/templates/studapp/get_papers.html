@@ -36,27 +36,35 @@
 <br />
 <h3>Minor 1</h3>
 <span id='papers'>
+<ul>
 {% for exam in course.minor1_set.all %}
 <!--<p class="p">{{ exam.paper }}</p>-->
-<a class='p' href={{exam.paper.url}}>{{exam.paper}}</a>
+<li><a class='p' href={{exam.paper.url}}>{{exam.paper}}</a></li>
 {% endfor %}
+</ul>
 
 <h3>Minor 2</h3>
+<ul>
 {% for exam in course.minor2_set.all %}
-<a class='p' href={{exam.paper.url}}>{{exam.paper}}</a>
+<li><a class='p' href={{exam.paper.url}}>{{exam.paper}}</a></li>
 {% endfor %}
+</ul>
 
 <h3>Major</h3>
+<ul>
 {% for exam in course.major_set.all %}
-<a class='p' href={{exam.paper.url}}>{{exam.paper}}</a>
+<li><a class='p' href={{exam.paper.url}}>{{exam.paper}}</a></li>
 {% endfor %}
+</ul>
 
 <h3>Other</h3>
+<ul>
 {% for exam in course.other_set.all %}
-<a class='p' href={{exam.paper.url}}>{{exam.paper}}</a>
+<li><a class='p' href={{exam.paper.url}}>{{exam.paper}}</a></li>
 {% endfor %}
+</ul>
 </span>
 {% endblock %}
 {% block js %}
-	<script src="{% static 'studapp/get_papers.js' %}"></script>
-	{% endblock %}
+  <script src="{% static 'studapp/get_papers.js' %}"></script>
+  {% endblock %}

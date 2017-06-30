@@ -102,7 +102,7 @@ margin: 10px;
 padding: 5px;
 }
 
-h1,h2,h3 {
+h1,h2 {
 color: rgb(0,0,0);
 font-family: 'Slabo 27px', serif;
 }
@@ -114,6 +114,8 @@ font-size: 1.4vw;
 h3 {
 font-size: 1.2vw;
 width: 300px;
+color: #000;
+font-family: 'Slabo 27px', serif;
 }
 
 .p {
@@ -196,7 +198,7 @@ body {
   padding: 17px 0 17px 0;
 }*/
 
-ul {
+.features {
   display: block;
   margin: 10px 0 10px 0;
   padding: 0;
@@ -212,7 +214,7 @@ li {
   display: block;
   margin: 10px 0 0 0;
 }
-li a {
+.features li a {
   color: #f9f9f9 !important;
 }
 button {
