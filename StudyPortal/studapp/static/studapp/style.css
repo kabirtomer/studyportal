@@ -29,8 +29,7 @@ background-image: url("concrete_wall.jpg");
 .content{
 	width:70vw;
 	padding:10vh 3vw;
-	height:100vh;	
-
+	min-height: 100vh;
     /* width: 630px; Removed*/
 	margin-left: 29vw ;/* Added */
 	/*padding: 50px 5% 5% 60px;*/

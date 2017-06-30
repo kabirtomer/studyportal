@@ -27,8 +27,8 @@ body{
 .content{
 	width:70vw;
 	padding:10vh 3vw;
-	height:100vh;
-	background-color: rgb(246, 248, 248);
+	min-height:100vh;
+	background-color: #faf5f7;
 	
 
     /* width: 630px; Removed*/
@@ -55,7 +55,6 @@ a{
 h1 {
 color: White;
 font-family: 'Slabo 27px', serif;
-margin: 10px;
 width: 100%;
 }
 
