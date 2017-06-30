@@ -276,10 +276,19 @@ width: 96%;
 margin: 10px 2%;
 padding: 0px 10px;
 float: left;
-background-color: #fff;
+background-color: #303036;
 display: block;
-border: 2px solid #303036;
+border: 2px solid #000;
 border-radius: 5px;
+}
+
+.section h3 {
+color: white;
+font-size: 1.5em;
+}
+
+.section a {
+color: white;
 }
 
 @media (max-width:900px)
