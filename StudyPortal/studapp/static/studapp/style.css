@@ -30,6 +30,7 @@ background-image: url("concrete_wall.jpg");
 	width:70vw;
 	padding:10vh 3vw;
 	min-height: 100vh;
+	background-color: dimgray;
     /* width: 630px; Removed*/
 	margin-left: 29vw ;/* Added */
 	/*padding: 50px 5% 5% 60px;*/
@@ -54,7 +55,6 @@ a{
 h1 {
 color: White;
 font-family: 'Slabo 27px', serif;
-margin: 10px;
 width: 100%;
 }
 
@@ -333,6 +333,6 @@ color: white;
     font-size: 16px;
     }
     .department {
-    font-size: 18px;
+    font-size: 30px;
     }
 }
