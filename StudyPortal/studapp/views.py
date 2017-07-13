@@ -97,7 +97,9 @@ def model_form_upload(request):
 		form = DocumentForm(request.POST, request.FILES)
 		if form.is_valid():
 			form.save()
-			return redirect('thanks')
+			# return redirect('thanks')
+			return render(request,'studapp/thanks.html')
+
 	else:
 		form = DocumentForm()
 	return render(request, 'studapp/model_form_upload.html', {'form': form})
@@ -108,7 +110,9 @@ def model_form_uploadl(request):
 		form = DocumentForm(request.POST, request.FILES)
 		if form.is_valid():
 			form.save()
-			return redirect('thanks')
+			# return redirect('thanks')
+			return render(request,'studapp/thanksl.html')
+
 	else:
 		form = DocumentForm()
 	return render(request, 'studapp/model_form_uploadl.html', {'form': form})
