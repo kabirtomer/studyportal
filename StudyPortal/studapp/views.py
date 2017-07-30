@@ -69,7 +69,6 @@ def displayl(request):
 	elif course_code_id=='0':
 		dept=Department.objects.get(pk=department_id)
 		return render(request,'studapp/get_course_codesl.html',{'department':dept,'departments':all_departments,'courses':all_courses})
-
 	else:
 		course=Course_code.objects.get(pk=course_code_id)
 		return render(request,'studapp/get_papersl.html',{'course':course,'departments':all_departments,'courses':all_courses})
