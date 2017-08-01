@@ -15,7 +15,7 @@ ANYONE WHO WORKS ON THIS MAKE SURE YOU INSTALL THE REQUIREMENTS USING:-
 pip install -r requirements.txt
 
 superuser credentials
-both username and password same as iitddevclub
+both username and password same as **youshouldknow**
 
 TO-DO:
 Find a cost-efficient platform to host this portal
