@@ -85,6 +85,12 @@
 {% endif %}
 </div>
 
+{% if not course.minor1_set.first.checkEmpty and not course.minor2_set.first.checkEmpty and not course.major_set.first.checkEmpty and not course.other_set.first.checkEmpty %}
+<div>
+  <p style="font-size: 1.2em; color: #fff;">Sorry! No Content has been uploaded for this course yet.</p>
+</div>
+{% endif %}
+
 </span>
 {% endblock %}
 {% block js %}
