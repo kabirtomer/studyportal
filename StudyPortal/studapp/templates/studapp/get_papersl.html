@@ -37,6 +37,8 @@
 <span id='papers'>
 
 <div style="width: 50%; margin: 0px; display: inline-block; float: left;">
+
+{% if course.minor1_set.first.checkEmpty %}
 <div class="section">
 <h3>Minor 1</h3>
 <ul>
@@ -46,7 +48,9 @@
 {% endfor %}
 </ul>
 </div>
+{% endif %}
 
+{% if course.minor2_set.first.checkEmpty %}
 <div class="section">
 <h3>Minor 2</h3>
 <ul>
@@ -55,9 +59,11 @@
 {% endfor %}
 </ul>
 </div>
+{% endif %}
 </div>
 
 <div style="width: 50%; margin: 0px; display: inline-block; float: left;">
+{% if course.major_set.first.checkEmpty %}
 <div class="section">
 <h3>Major</h3>
 <ul>
@@ -66,7 +72,9 @@
 {% endfor %}
 </ul>
 </div>
+{% endif %}
 
+{% if course.other_set.first.checkEmpty %}
 <div class="section">
 <h3>Other</h3>
 <ul>
@@ -75,7 +83,14 @@
 {% endfor %}
 </ul>
 </div>
+{% endif %}
 </div>
+
+{% if not course.minor1_set.first.checkEmpty and not course.minor2_set.first.checkEmpty and not course.major_set.first.checkEmpty and not course.other_set.first.checkEmpty %}
+<div>
+  <p>Sorry! No Content has been uploaded for this course yet.</p>
+</div>
+{% endif %}
 
 </span>
 {% endblock %}
