@@ -44,7 +44,7 @@
 <ul>
 {% for exam in course.minor1_set.all %}
 <!--<p class="p">{{ exam.paper }}</p>-->
-<li><a class='p' href={{exam.paper.url}}>{{exam.paper}}</a></li>
+<li><div class="desc"><a class='p' href={{exam.paper.url}}>{{exam.paper}}</a><div class="description">{{exam.description}}</div></div></li>
 {% endfor %}
 </ul>
 </div>
@@ -55,7 +55,7 @@
 <h3>Minor 2</h3>
 <ul>
 {% for exam in course.minor2_set.all %}
-<li><a class='p' href={{exam.paper.url}}>{{exam.paper}}</a></li>
+<li><div class="desc"><a class='p' href={{exam.paper.url}}>{{exam.paper}}</a><div class="description">{{exam.description}}</div></div></li>
 {% endfor %}
 </ul>
 </div>
@@ -68,7 +68,7 @@
 <h3>Major</h3>
 <ul>
 {% for exam in course.major_set.all %}
-<li><a class='p' href={{exam.paper.url}}>{{exam.paper}}</a></li>
+<li><div class="desc"><a class='p' href={{exam.paper.url}}>{{exam.paper}}</a><div class="description">{{exam.description}}</div></div></li>
 {% endfor %}
 </ul>
 </div>
@@ -79,7 +79,7 @@
 <h3>Other</h3>
 <ul>
 {% for exam in course.other_set.all %}
-<li><a class='p' href={{exam.paper.url}}>{{exam.paper}}</a></li>
+<li><div class="desc"><a class='p' href={{exam.paper.url}}>{{exam.paper}}</a><div class="description">{{exam.description}}</div></div></li>
 {% endfor %}
 </ul>
 </div>

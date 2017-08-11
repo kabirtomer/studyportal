@@ -314,9 +314,38 @@ font-size: 0.75em;
     .department {
     font-size: 2vw;
     }
+    .deal {
+    height: 5%;
+    }
 }
 
-@media (min-width:900px)
+@media (min-width:900px and max-width:1025px)
+{
+    .dept-title {
+    font-size: 16px;
+    }
+    .features li a {
+    font-size: 14px;
+    }
+    .upload-button {
+    font-size: 18px;
+    }
+    #select1, #select2 {
+    font-size: 14px;
+    margin: 0px;
+    }
+    label {
+    font-size: 16px;
+    }
+    .department {
+    font-size: 30px;
+    }
+    .deal {
+    height: 5%;
+    }
+}
+
+@media (min-width:1025px)
 {
     .dept-title {
     font-size: 16px;
@@ -354,4 +383,25 @@ font-size: 0.75em;
 }
 .navbar-inverse .container-fluid a{
   color: black !important;
+}
+
+.desc .description {
+position: absolute;
+display: none;
+background: #464646;
+border-radius: 2px;
+max-width: 250px;
+color: #fff;
+padding: 5px;
+}
+
+.desc:hover>.description {
+display: block;
+z-index: 2;
+}
+
+.helptext {
+float: right;
+width: 35vw;
+min-width: 200px;
 }
