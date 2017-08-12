@@ -33,8 +33,7 @@
 <h2 class='course_list'>Course List</h2>
 <span class='code' >
 {% for course in department.course_code_set.all %}
-<a href="/studapp/view/?department={{ department.id }}&course_code={{ course.code }}"><h3>{{ course.code }}</h3></a>
-<br></br>
+<a style="float:left" href="/studapp/view/?department={{ department.id }}&course_code={{ course.code }}"><h3>{{ course.code }}</h3></a>
 {% endfor %}
 </span>
 {% endblock %}

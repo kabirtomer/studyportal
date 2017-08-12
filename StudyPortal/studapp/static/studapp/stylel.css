@@ -62,30 +62,7 @@ font-family: 'Slabo 27px', serif;
 width: 100%;
 }
 
-/*
-table {
-width: 30%;
-background-color: rgb(0,50,112);
-border-radius: 5px;
-border: 1px solid rgb(0,50,112); 
-position: relative;
-margin-bottom: 20px;
-}
-td {
-padding: 5px 5%;
-font-family: Lato;
-font-size: 18px;
-}
-th{
-font-family: Calibri;
-font-size: 20px;
-background-color: White;
-margin: 5px;
-}
-tr{
-color: rgb(0,50,112);
-}
-*/
+
 
 select {
 padding: 5px;

@@ -20,5 +20,6 @@ $(document).ready(function(){
    		 	select = Math.floor((Math.random() * colors.length));
    		 }    
 	     $(this).css("background",colors[select]);
+	     dontTake = select;
 	});
 })
