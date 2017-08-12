@@ -22,7 +22,7 @@ urlpatterns = [
     url(r'^studapp/', include('studapp.urls')),
     url(r'^studapp/light/', include('studapp.urls')),
     url(r'^admin/', admin.site.urls),
-    url(r'^$', RedirectView.as_view(url='/studapp/', permanent=True)),
+    url(r'^$', RedirectView.as_view(url='/studapp/light', permanent=True)),
     
 ]
 #####upload
