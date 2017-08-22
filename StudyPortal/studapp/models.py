@@ -89,3 +89,10 @@ class Document(models.Model):
 	def __str__(self):
 		return self.document.name
 
+class Listfile(models.Model):
+        # For remote access
+        coursecode = models.ForeignKey(Course_code,on_delete=models.CASCADE,unique=False,blank=True,null=True)
+        other_papers = models.ForeignKey(Other,on_delete=models.CASCADE,unique=False,null=True)
+        # other_papers = models.CharField(max_length=200, null=True)
+        def __str__(self):
+                return self.coursecode.code

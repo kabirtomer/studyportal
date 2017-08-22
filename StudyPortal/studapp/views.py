@@ -1,10 +1,15 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
+import json
 
 from django.shortcuts import render,redirect
+from rest_framework.renderers import JSONRenderer
+from rest_framework.parsers import JSONParser
+from studapp.serializers import StudySerializer
+from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from .models import *
 
 from django.forms import ModelForm
@@ -115,3 +120,41 @@ def model_form_uploadl(request):
 	else:
 		form = DocumentForm()
 	return render(request, 'studapp/model_form_uploadl.html', {'form': form})
+
+def merge(dict1,dict2):
+        for key in dict2:
+                if dict1[key]!=dict2[key]:
+                        dict1[key] = dict1[key]+'; '+dict2[key]
+        return dict1
+
+@csrf_exempt
+def restCheck(request,pk):
+        course_code_id = Course_code.objects.get(code=pk).id
+        try:
+                ob = Listfile.objects.filter(coursecode=course_code_id)
+        except Listfile.DoesNotExist:
+                return HttpResponse(status=404)
+
+        data = {}
+        first = 0
+        for obj in ob:
+                if request.method == 'GET':
+                        serializer = StudySerializer(obj)
+                        if first==0:
+                                data = serializer.data
+                                first+=1
+                        else:
+                                data = merge(data,serializer.data)
+                elif request.method == 'POST':
+                        data = JSONParser().parse(request)
+                        serializer = Studyserializer(obj, data=data)
+                        if serializer.is_valid():
+                                serializer.save()
+                                if first==0:
+                                        data = serializer.data
+                                        first+=1
+                                else:
+                                        data = merge(data, serializer.data)
+                        return JsonResponse(serializer.errors, status=400)
+        return JsonResponse(data)
+        
