@@ -18,4 +18,7 @@ superuser credentials
 both username and password same as **youshouldknow**
 
 TO-DO:
-Find a cost-efficient platform to host this portal
+1. Find a cost-efficient platform to host this portal
+2. **Build a REST API for this portal to allow remote access to the files and to allow upload/downloads remotely.** 
+    In this, django_rest framework has been used. Presently, the rest functions are avaible at url "/studapp/rest/". Presently, it lists down the files for a given course code. Usage: 
+    Go to url: /studapp/rest/<course_code>/
