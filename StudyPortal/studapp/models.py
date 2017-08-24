@@ -9,7 +9,7 @@ import os
 from functools import partial
 from django.http import HttpResponse
 
-def _update_filename(instance, path):
+def _update_filename(instance, filename, path):
 	path = path
 	filename = instance.course_code+'_'+instance.year+'_sem'+instance.sem+'_'+instance.type_exam+'_name:'+instance.document.name
 	return os.path.join(path, filename)
