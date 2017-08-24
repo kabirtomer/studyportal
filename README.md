@@ -14,6 +14,9 @@ and latest version of django that is django 1.11.1
 ANYONE WHO WORKS ON THIS MAKE SURE YOU INSTALL THE REQUIREMENTS USING:-
 pip install -r requirements.txt
 
+Before making ANY CHANGE in the REPO:
+**Make sure to commit changes from the vm and then make any changes. And after making any changes on your local machine, please commit the changes and pull them in the vm.**
+
 superuser credentials
 both username and password same as **youshouldknow**
 
