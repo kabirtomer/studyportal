@@ -1,6 +1,5 @@
 cycler==0.10.0
 Django==1.10.6
-functools32==3.2.3.post2
 gunicorn==19.7.0
 pyparsing==2.2.0
 python-dateutil==2.6.0
