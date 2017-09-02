@@ -192,7 +192,7 @@ def userlogin(request):
 		user = authenticate(request,username=request.POST['username'],password=request.POST['password'])
 		if user is not None:
 			login(request,user)
-			return HttpResponse("<h1>Successfully logged in. Now you can approve requests</h1>")
+			return redirect('/studapp/approve')
 
 		else:
 			render(request,'studapp/login.html')
@@ -200,4 +200,4 @@ def userlogin(request):
 def userlogout(request):
 	logout(request)
 	# return render(request,'studapp/login.html')
-	return HttpResponse("<h1>Successfully logged out</h1>")
+	return redirect("/studapp/light/")
