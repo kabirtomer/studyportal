@@ -20,5 +20,14 @@ Before making ANY CHANGE in the REPO:
 superuser credentials
 both username and password same as **youshouldknow**
 
-TO-DO:
-Find a cost-efficient platform to host this portal
+-----------------------------------------------------------------------------------------
+How to login to approve and disapprove requests?
+Login:
+	Go to /studapp/userlogin and enter the credentials
+Logout:
+	Go to /studapp/userlogout
+-----------------------------------------------------------------------------------------
+How to approve and disapprove requests?
+Go to /studapp/approve and accept or reject each request
+------
+Explicit buttons not added for login, logout and approval so that the general mass remains in ignorance

@@ -40,7 +40,7 @@ class Minor1(models.Model):
 	course=models.ForeignKey(Course_code,on_delete=models.CASCADE)
 	#paper=models.CharField(max_length=50)
 	paper = models.FileField()
-	description = models.CharField(max_length=100,null=True,blank=True)
+	# description = models.CharField(max_length=100,null=True,blank=True)
 	def __str__(self):
 		return self.paper.name
 	def checkEmpty(self):
@@ -50,7 +50,7 @@ class Minor2(models.Model):
 	course=models.ForeignKey(Course_code,on_delete=models.CASCADE)
 	#paper=models.CharField(max_length=50)
 	paper = models.FileField()
-	description = models.CharField(max_length=100,null=True,blank=True)	
+	# description = models.CharField(max_length=100,null=True,blank=True)	
 	def __str__(self):
 		return self.paper.name
 	def checkEmpty(self):
@@ -60,7 +60,7 @@ class Major(models.Model):
 	course=models.ForeignKey(Course_code,on_delete=models.CASCADE)
 	#paper=models.CharField(max_length=50)
 	paper = models.FileField()
-	description = models.CharField(max_length=100,null=True,blank=True)
+	# description = models.CharField(max_length=100,null=True,blank=True)
 	def __str__(self):
 		return self.paper.name
 	def checkEmpty(self):
@@ -70,7 +70,7 @@ class Other(models.Model):
 	course=models.ForeignKey(Course_code,on_delete=models.CASCADE)
 	#paper=models.CharField(max_length=50)
 	paper= models.FileField()
-	description = models.CharField(max_length=100,null=True,blank=True)
+	# description = models.CharField(max_length=100,null=True,blank=True)
 	def __str__(self):
 		return self.paper.name
 	def checkEmpty(self):
@@ -81,11 +81,14 @@ class Document(models.Model):
 	
 	##########to get from the form
 	course_code = models.CharField(max_length=6, blank=True,help_text="e.g. APL100")
+	
+	# course_code = models.ModelChoiceField(queryset=Course_code.objects.order_by('code'))
+
 	sem = models.CharField(max_length=20, blank=True,help_text="e.g. 1")
 	year = models.CharField(max_length=20, blank=True,help_text="e.g. 2016-17")	
 	type_exam = models.CharField(max_length=10, blank=True,help_text="e.g. minor1/Tut/Book")
 	document = models.FileField(upload_to=upload_to('unapproved_documents/'))
-	description = models.CharField(max_length=100, blank=True,help_text="any information about the uploaded document that can be seen by the other users - topic, difficulty level or even the professor!")
+	# description = models.CharField(max_length=100, blank=True,help_text="any information about the uploaded document that can be seen by the other users - topic, difficulty level or even the professor!")
 	uploaded_at = models.DateTimeField(auto_now_add=True)
 
 	##########

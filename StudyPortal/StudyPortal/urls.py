@@ -19,6 +19,7 @@ from django.views.generic import RedirectView
 
 
 urlpatterns = [
+    url(r'^accounts/login/$', RedirectView.as_view(url='/studapp/userlogin', permanent=True)),
     url(r'^studapp/', include('studapp.urls')),
     url(r'^studapp/light/', include('studapp.urls')),
     url(r'^admin/', admin.site.urls),

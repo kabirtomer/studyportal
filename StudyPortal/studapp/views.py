@@ -13,6 +13,9 @@ from studapp.models import Document
 import os
 from django.core.files import File
 
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate, login, logout
+
 def index(request):
 	departments=Department.objects.order_by('dept')
 	courses=Course_code.objects.order_by('code')
@@ -24,19 +27,6 @@ def indexl(request):
 	courses=Course_code.objects.order_by('code')
 	context={'departments':departments,'courses':courses}
 	return render(request,'studapp/indexl.html',context)
-
-#test is just a debug function
-def test(request,x,y):
-	departments=Department.objects.order_by('dept')
-	courses=Course_code.objects.order_by('code')
-	context={'departments':departments,'courses':courses,'x':x,'y':y}
-	return render(request,'studapp/index_old.html',context)
-
-def testl(request,x,y):
-	departments=Department.objects.order_by('dept')
-	courses=Course_code.objects.order_by('code')
-	context={'departments':departments,'courses':courses,'x':x,'y':y}
-	return render(request,'studapp/index_oldl.html',context)
 
 def display(request):
 	all_departments=Department.objects.order_by('dept')
@@ -75,17 +65,17 @@ def displayl(request):
 		course=Course_code.objects.get(pk=course_code_id)
 		return render(request,'studapp/get_papersl.html',{'course':course,'departments':all_departments,'courses':all_courses})
 
-def upload(request):
-        departments=Department.objects.order_by('dept')
-	courses=Course_code.objects.order_by('code')
-	context={'departments':departments,'courses':courses}
-        return render(request,'studapp/upload.html', context)
+# def upload(request):
+#         departments=Department.objects.order_by('dept')
+# 	courses=Course_code.objects.order_by('code')
+# 	context={'departments':departments,'courses':courses}
+#         return render(request,'studapp/upload.html', context)
 
-def uploadl(request):
-        departments=Department.objects.order_by('dept')
-	courses=Course_code.objects.order_by('code')
-	context={'departments':departments,'courses':courses}
-        return render(request,'studapp/uploadl.html', context)
+# def uploadl(request):
+#         departments=Department.objects.order_by('dept')
+# 	courses=Course_code.objects.order_by('code')
+# 	context={'departments':departments,'courses':courses}
+#         return render(request,'studapp/uploadl.html', context)
 
 ####upload file
 def thanks(request):
@@ -93,51 +83,63 @@ def thanks(request):
 def thanksl(request):
 	return render(request,'studapp/thanksl.html')
 
+# def model_form_upload(request):
+# 	if request.method == 'POST':
+# 		form = DocumentForm(request.POST, request.FILES)
+# 		if form.is_valid():
+# 			form.save()
+# 			# return redirect('thanks')
+# 			txtfile = open('media/unapproved_documents/files.txt','a')
+# 			txtfile.write(request.POST.get('course_code','none')+'_'+request.POST.get('year','none')+'_sem'+request.POST.get('sem','none')+'_'+request.POST.get('type_exam','none')+request.FILES['document'].name[request.FILES['document'].name.rindex('.'):]+'\n')
+			
+# 			txtfile.close()
+
+# 			return render(request,'studapp/thanks.html')
+
+# 	else:
+# 		form = DocumentForm()
+# 	return render(request, 'studapp/model_form_upload.html', {'form': form})
 def model_form_upload(request):
 	if request.method == 'POST':
-		form = DocumentForm(request.POST, request.FILES)
-		if form.is_valid():
-			form.save()
-			# return redirect('thanks')
-			txtfile = open('media/unapproved_documents/files.txt','a')
-			txtfile.write(request.POST.get('course_code','none')+'_'+request.POST.get('year','none')+'_sem'+request.POST.get('sem','none')+'_'+request.POST.get('type_exam','none')+request.FILES['document'].name[request.FILES['document'].name.rindex('.'):]+'\n')
-			
-			txtfile.close()
 
-			return render(request,'studapp/thanks.html')
+		doc = Document(course_code = request.POST.get('course_code'),sem = request.POST.get('sem'),year = request.POST.get('year'),type_exam = request.POST.get('type_exam'))
+		doc.document = request.FILES['document']
+		doc.save()
+
+		txtfile = open('media/unapproved_documents/files.txt','a')
+		txtfile.write(request.POST.get('course_code','none')+'_'+request.POST.get('year','none')+'_sem'+request.POST.get('sem','none')+'_'+request.POST.get('type_exam','none')+request.FILES['document'].name[request.FILES['document'].name.rindex('.'):]+'\n')
+		
+		txtfile.close()
+		return render(request,'studapp/thanks.html')
 
 	else:
-		form = DocumentForm()
-	return render(request, 'studapp/model_form_upload.html', {'form': form})
+		return render(request, 'studapp/model_form_upload.html')
 
 
 def model_form_uploadl(request):
 	if request.method == 'POST':
-		form = DocumentForm(request.POST, request.FILES)
-		if form.is_valid():
-			form.save()
-			# return redirect('thanks')
-			
-			txtfile = open('media/unapproved_documents/files.txt','a')
-			txtfile.write(request.POST.get('course_code','none')+'_'+request.POST.get('year','none')+'_sem'+request.POST.get('sem','none')+'_'+request.POST.get('type_exam','none')+request.FILES['document'].name[request.FILES['document'].name.rindex('.'):]+'\n')
-			
-			# instance.course_code+'_'+instance.year+'_sem'+instance.sem+'_'+instance.type_exam
+		
+		doc = Document(course_code = request.POST.get('course_code'),sem = request.POST.get('sem'),year = request.POST.get('year'),type_exam = request.POST.get('type_exam'))
+		doc.document = request.FILES['document']
+		doc.save()
 
-
-			txtfile.close()
-
-			return render(request,'studapp/thanksl.html')
+		txtfile = open('media/unapproved_documents/files.txt','a')
+		txtfile.write(request.POST.get('course_code','none')+'_'+request.POST.get('year','none')+'_sem'+request.POST.get('sem','none')+'_'+request.POST.get('type_exam','none')+request.FILES['document'].name[request.FILES['document'].name.rindex('.'):]+'\n')
+		
+		txtfile.close()
+		return render(request,'studapp/thanksl.html')
 
 	else:
-		form = DocumentForm()
-	return render(request, 'studapp/model_form_uploadl.html', {'form': form})
+		return render(request, 'studapp/model_form_uploadl.html')
 
+@login_required
 def approve(request):
 	txtfile = open('media/unapproved_documents/files.txt','r')
 	unapproved_documents = txtfile.readlines()
 	txtfile.close
 	return render(request, 'studapp/approve.html', {'unapproved_documents':unapproved_documents})
 
+@login_required
 def remove_unapproved_document(request):
 	Document.objects.all().delete()#to remove model objects of unnecessary document model
 	txtfile = open('media/unapproved_documents/files.txt','r')
@@ -154,6 +156,7 @@ def remove_unapproved_document(request):
 		return HttpResponse('<h1>No such file exists. Maybe it was manually deleted</h1>')
 	return redirect('/studapp/approve')
 
+@login_required
 def approve_unapproved_document(request):
 	fileName = request.GET.get('name','none')
 	try:
@@ -184,4 +187,17 @@ def approve_unapproved_document(request):
 	except:
 		return HttpResponse('<h1> Such a course code does not exist</h1><h1>Ask the developers to add the course code and then try again</h1>')
 	
+def userlogin(request):
+	if request.method=='POST':
+		user = authenticate(request,username=request.POST['username'],password=request.POST['password'])
+		if user is not None:
+			login(request,user)
+			return HttpResponse("<h1>Successfully logged in. Now you can approve requests</h1>")
 
+		else:
+			render(request,'studapp/login.html')
+	return render(request,'studapp/login.html')
+def userlogout(request):
+	logout(request)
+	# return render(request,'studapp/login.html')
+	return HttpResponse("<h1>Successfully logged out</h1>")

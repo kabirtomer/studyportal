@@ -26,17 +26,50 @@
 {% endblock %}
 
 {% block content %}
-	<br></br>
+  <br></br>
 <span id='form'>
-<p>Note: In case you upload a book, tut or something other than exam paper, leave the sem and year blank.</p>
-<p>Important Instruction: Please take care to upload the file with an appropriate name so that it is easy for others to understand.</p>
+<p>Note: In case you upload a book, tut or something other than exam paper, leave the sem and year blank and add some details in the type of paper.</p>
+<!-- <p>Important Instruction: Please take care to upload the file with an appropriate name so that it is easy for others to understand.</p> -->
   <form style="color: black; font-size:150%;" method="post" enctype="multipart/form-data" class="uploadform">
     {% csrf_token %}
-    {{ form.as_p }}
+    <label>Course Code</label>
+    <input style="margin:0" type="text" name="course_code" maxlength='6' placeholder="APL100" autocomplete="off" required>
+    <br>
+    <label>Semester</label>
+    <!-- <input type="text" name="sem"> -->
+    <select name = "sem" style="display: inline;width:100px">
+        <option value="_"> </option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+    </select>
+    <br>
+    <label>Academic Year</label>
+    <input style="margin:0" type="text" name="year" placeholder="2016-17">
+    <br>
+    <label>Type of paper</label>
+    
+    <input style="margin:0px;width:500px" list="types" name="type_exam" placeholder="minor1 or Probability_CheatSheet"  required>
+     <datalist id="types">
+     <option value="minor1">
+     <option value="minor2">
+     <option value="major">
+    </datalist>
+    <br>
+
+    <input type="file" name="document" required>
+
     <button type="submit">Upload</button>
   </form>
 {% endblock %}
 {% block js %}
+  <script type="text/javascript">
+    $(function() {
+    $('input').on('keypress', function(e) {
+        if (e.which == 32)
+            return false;
+    });
+});
+  </script>
 	<script src="{% static 'studapp/upload.js' %}"></script>
 </span>	
 {% endblock %}
