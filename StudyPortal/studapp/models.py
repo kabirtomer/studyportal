@@ -11,7 +11,9 @@ from django.http import HttpResponse
 
 def _update_filename(instance, filename, path):
 	path = path
-	filename = instance.course_code+'_'+instance.year+'_sem'+instance.sem+'_'+instance.type_exam+'_name:'+instance.document.name
+	# filename = instance.course_code+'_'+instance.year+'_sem'+instance.sem+'_'+instance.type_exam+'_name:'+instance.document.name
+	filename = instance.course_code+'_'+instance.year+'_sem'+instance.sem+'_'+instance.type_exam+instance.document.name[instance.document.name.rindex('.'):]
+
 	return os.path.join(path, filename)
 
 def upload_to(path):
@@ -82,9 +84,10 @@ class Document(models.Model):
 	sem = models.CharField(max_length=20, blank=True,help_text="e.g. 1")
 	year = models.CharField(max_length=20, blank=True,help_text="e.g. 2016-17")	
 	type_exam = models.CharField(max_length=10, blank=True,help_text="e.g. minor1/Tut/Book")
-	document = models.FileField(upload_to=upload_to('documents/'))
+	document = models.FileField(upload_to=upload_to('unapproved_documents/'))
 	description = models.CharField(max_length=100, blank=True,help_text="any information about the uploaded document that can be seen by the other users - topic, difficulty level or even the professor!")
 	uploaded_at = models.DateTimeField(auto_now_add=True)
+
 	##########
 	def __str__(self):
 		return self.document.name

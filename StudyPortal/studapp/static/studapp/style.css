@@ -54,8 +54,14 @@ a{
 	color: White;
 	text-decoration: none;
 }
-
-
+#unapproved_document:hover{
+	color: white;
+	text-decoration: underline; 
+}
+#unapproved_document:focus{
+  color: white;
+  text-decoration: underline; 
+}
 .course:hover 
 {
      color:#00A0C6;
