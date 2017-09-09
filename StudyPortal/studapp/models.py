@@ -8,6 +8,8 @@ import datetime
 import os
 from functools import partial
 from django.http import HttpResponse
+from django.contrib.contenttypes.models import ContentType
+from django.contrib.contenttypes.fields import GenericForeignKey
 
 def _update_filename(instance, filename, path):
 	path = path
@@ -33,6 +35,7 @@ class Department(models.Model):
 class Course_code(models.Model):
 	dept=models.ForeignKey(Department,on_delete=models.CASCADE)
 	code=models.CharField(max_length=6)#like APL100
+	pagehits=models.IntegerField(null=True)
 	def __str__(self):
 		return self.code
 
@@ -94,4 +97,3 @@ class Document(models.Model):
 	##########
 	def __str__(self):
 		return self.document.name
-

@@ -16,6 +16,14 @@ from django.core.files import File
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 
+def track_hits(request,template_path,context,co):
+        try:
+                co.pagehits+=1
+        except:
+                co.pagehits = 1
+        co.save()
+        return render(request,template_path,context)
+
 def index(request):
 	departments=Department.objects.order_by('dept')
 	courses=Course_code.objects.order_by('code')
@@ -45,7 +53,7 @@ def display(request):
 
 	else:
 		course=Course_code.objects.get(pk=course_code_id)
-		return render(request,'studapp/get_papers.html',{'course':course,'departments':all_departments,'courses':all_courses})
+		return track_hits(request,'studapp/get_papers.html',{'course':course,'departments':all_departments,'courses':all_courses},course)
 
 def displayl(request):
 	all_departments=Department.objects.order_by('dept')
@@ -63,7 +71,7 @@ def displayl(request):
 		return render(request,'studapp/get_course_codesl.html',{'department':dept,'departments':all_departments,'courses':all_courses})
 	else:
 		course=Course_code.objects.get(pk=course_code_id)
-		return render(request,'studapp/get_papersl.html',{'course':course,'departments':all_departments,'courses':all_courses})
+		return track_hits(request,'studapp/get_papers.html',{'course':course,'departments':all_departments,'courses':all_courses},course)
 
 # def upload(request):
 #         departments=Department.objects.order_by('dept')

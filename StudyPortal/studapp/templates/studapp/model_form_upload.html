@@ -28,7 +28,7 @@
 {% block content %}
   <br></br>
 <span id='form'>
-<p>Note: In case you upload a book, tut or something other than exam paper, leave the sem and year blank and add some details in the type of paper.</p>
+<p style="color: #fafafa;">Note: In case you upload a book, tut or something other than exam paper, leave the sem and year blank and add some details in the type of paper.</p>
 <!-- <p>Important Instruction: Please take care to upload the file with an appropriate name so that it is easy for others to understand.</p> -->
   <form style="color: black; font-size:150%;" method="post" enctype="multipart/form-data" class="uploadform">
     {% csrf_token %}
@@ -48,7 +48,7 @@
     <br>
     <label>Type of paper</label>
     
-    <input style="margin:0px;width:500px" list="types" name="type_exam" placeholder="minor1 or Probability_CheatSheet"  required>
+    <input style="margin:0px;width:500px" list="types" name="type_exam" placeholder="Type of exam (e.g. minor1) or name of file"  required>
      <datalist id="types">
      <option value="minor1">
      <option value="minor2">

@@ -261,7 +261,7 @@ border: 2px solid #006e90;
 border-radius: 5px;
 }
 
-.uploadform span, .uploadform input {
+.uploadform select option, .uploadform select, .uploadform input {
 font-size: 0.75em;
 }
 

@@ -284,8 +284,13 @@ font-size: 1.5em;
 color: white;
 }
 
-.uploadform span, .uploadform input {
+.uploadform select option, .uploadform select, .uploadform input {
 font-size: 0.75em;
+}
+
+.uploadform select, .uploadform input {
+background-color: #bbb;
+border: 0.1em solid #222;
 }
 
 .uploadform label {
