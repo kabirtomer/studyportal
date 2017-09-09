@@ -14,7 +14,7 @@ and latest version of django that is django 1.11.1
 ANYONE WHO WORKS ON THIS MAKE SURE YOU INSTALL THE REQUIREMENTS USING:-
 pip install -r requirements.txt
 
-Before making ANY CHANGE in the REPO:
+Before making ANY CHANGE in the REPO:  
 **Make sure to commit changes from the vm and then make any changes. And after making any changes on your local machine, please commit the changes and pull them in the vm.**
 
 superuser credentials
@@ -23,4 +23,8 @@ both username and password same as **youshouldknow**
 -----------------------------------------------------------------------------------------
 How to approve and disapprove requests?
 Go to /studapp/approve and accept or reject each request
-PS: You must be logged in to do that ;)
+PS: You must be logged in to do that ;)  
+
+Tracking: Tracking and Page hits are currently implemented in two ways:
+1. Google Analytics - Currently, Google analytics is operational for **www.cse.iitd.ac.in/devclub/studyportal**
+2. Admin Panel - Course Page hits can also be found from the admin panel. Go to the requisite course code and check the pagehits field :)
