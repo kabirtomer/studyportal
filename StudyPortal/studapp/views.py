@@ -71,7 +71,7 @@ def displayl(request):
 		return render(request,'studapp/get_course_codesl.html',{'department':dept,'departments':all_departments,'courses':all_courses})
 	else:
 		course=Course_code.objects.get(pk=course_code_id)
-		return track_hits(request,'studapp/get_papers.html',{'course':course,'departments':all_departments,'courses':all_courses},course)
+		return track_hits(request,'studapp/get_papersl.html',{'course':course,'departments':all_departments,'courses':all_courses},course)
 
 # def upload(request):
 #         departments=Department.objects.order_by('dept')
