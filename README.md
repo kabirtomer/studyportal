@@ -28,3 +28,14 @@ PS: You must be logged in to do that ;)
 Tracking: Tracking and Page hits are currently implemented in two ways:
 1. Google Analytics - Currently, Google analytics is operational for **www.cse.iitd.ac.in/devclub/studyportal**
 2. Admin Panel - Course Page hits can also be found from the admin panel. Go to the requisite course code and check the pagehits field :)
+-----------------------------------------------------------------------------------------
+API
+/studapp/api/departments/ : would return all departments with their coursecodes
+/studapp/api/departments?code=apl : would only return codes of apl
+/studapp/api/course_codes/ : would return all course codes along with their minors, majors and others
+/studapp/api/course_codes/?code=apl100 : would only return papers of apl100
+/studapp/api/document/ : only post requests allowed to upload files.
+						request.data must contain *coursecode*(like APL100), *type_exam*(minor1/minor2/major/QuantumBook), *document*(file)
+						optionally it may also have, *sem*(1 or 2), *year*(2016-17), 
+						
+
