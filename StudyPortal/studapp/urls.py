@@ -2,6 +2,8 @@ from django.conf.urls import url
 
 from . import views
 
+from rest_framework.urlpatterns import format_suffix_patterns
+
 urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^light/$', views.indexl, name='indexl'),
@@ -20,6 +22,15 @@ urlpatterns = [
     url(r'^userlogin/$', views.userlogin ,name='userlogin'),
     url(r'^userlogout/$', views.userlogout ,name='userlogout'),
 
+    url(r'^api/departments/$', views.DepartmentList.as_view() ),
+    url(r'^api/course_codes/$', views.Course_codeList.as_view() ),
+    url(r'^api/document/$', views.DocumentList.as_view() ),
+
+
+
+
 
 
 ]
+
+urlpatterns = format_suffix_patterns(urlpatterns)

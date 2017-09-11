@@ -16,6 +16,13 @@ from django.core.files import File
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 
+#import for apis
+from django.shortcuts import get_object_or_404
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+from .serializers import *
+
 def track_hits(request,template_path,context,co):
         try:
                 co.pagehits+=1
@@ -28,6 +35,7 @@ def index(request):
 	departments=Department.objects.order_by('dept')
 	courses=Course_code.objects.order_by('code')
 	context={'departments':departments,'courses':courses}
+
 	return render(request,'studapp/index.html',context)
 
 def indexl(request):
@@ -139,7 +147,7 @@ def model_form_uploadl(request):
 
 	else:
 		return render(request, 'studapp/model_form_uploadl.html')
-
+#approvals
 @login_required
 def approve(request):
 	txtfile = open('media/unapproved_documents/files.txt','r')
@@ -164,6 +172,7 @@ def remove_unapproved_document(request):
 		return HttpResponse('<h1>No such file exists. Maybe it was manually deleted</h1>')
 	return redirect('/studapp/approve')
 
+#login to approve
 @login_required
 def approve_unapproved_document(request):
 	fileName = request.GET.get('name','none')
@@ -209,3 +218,64 @@ def userlogout(request):
 	logout(request)
 	# return render(request,'studapp/login.html')
 	return redirect("/studapp/light/")
+#api
+
+class DepartmentList(APIView):
+	def get(self, request):
+		# departments = Department.objects.all()
+		# serializer  = DepartmentSerializer(departments, many = True)
+		# return Response(serializer.data)
+
+		tmp = request.GET.get('code','None').upper()
+		if tmp!='NONE':
+			try:
+				department=Department.objects.get(code=tmp)
+				serializer  = DepartmentSerializer(department, many = False)
+				return Response(serializer.data)
+			except:
+				# serializer  = Course_codeSerializer( many = False)
+				return Response(status=status.HTTP_400_BAD_REQUEST)	
+		else:
+			departments=Department.objects.all()
+			serializer  = DepartmentSerializer(departments, many = True)
+			return Response(serializer.data)
+
+	
+class Course_codeList(APIView):
+	def get(self, request):
+		# course_codes = Course_code.objects.all()
+		tmp = request.GET.get('code','None').upper()
+		if tmp!='NONE':
+			try:
+				course=Course_code.objects.get(code=tmp)
+				serializer  = Course_codeSerializer(course, many = False)
+				return Response(serializer.data)
+			except:
+				# serializer  = Course_codeSerializer( many = False)
+				return Response(status=status.HTTP_400_BAD_REQUEST)	
+		else:
+			courses=Course_code.objects.all()
+			serializer  = Course_codeSerializer(courses, many = True)
+			return Response(serializer.data)
+
+
+		
+class DocumentList(APIView):
+	# def get(self, request):
+	# 	documents=Document.objects.all()
+	# 	serializer  = DocumentSerializer(documents, many = True)
+	# 	return Response(serializer.data)
+
+
+	def post(self, request):
+		serializer = DocumentSerializer(data = request.data)
+		
+
+
+		if serializer.is_valid() and request.data.get('course_code')!=None and request.data.get('type_exam')!=None: 
+			txtfile = open('media/unapproved_documents/files.txt','a')
+			txtfile.write(request.POST.get('course_code','none')+'_'+request.POST.get('year','')+'_sem'+request.POST.get('sem','')+'_'+request.POST.get('type_exam','none')+request.FILES['document'].name[request.FILES['document'].name.rindex('.'):]+'\n')
+			txtfile.close()
+			serializer.save() 
+			return Response(serializer.data, status=status.HTTP_201_CREATED)
+		return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST) 

@@ -36,6 +36,8 @@ class Course_code(models.Model):
 	dept=models.ForeignKey(Department,on_delete=models.CASCADE)
 	code=models.CharField(max_length=6)#like APL100
 	pagehits=models.IntegerField(null=True)
+	def __unicode__(self):
+		return self.code
 	def __str__(self):
 		return self.code
 
@@ -46,8 +48,12 @@ class Minor1(models.Model):
 	# description = models.CharField(max_length=100,null=True,blank=True)
 	def __str__(self):
 		return self.paper.name
+	#for serializer to string
+	def __unicode__(self):
+		return '/media/'+self.paper.name
 	def checkEmpty(self):
                 return True
+
 	
 class Minor2(models.Model):
 	course=models.ForeignKey(Course_code,on_delete=models.CASCADE)
@@ -56,6 +62,8 @@ class Minor2(models.Model):
 	# description = models.CharField(max_length=100,null=True,blank=True)	
 	def __str__(self):
 		return self.paper.name
+	def __unicode__(self):
+		return '/media/'+self.paper.name
 	def checkEmpty(self):
                 return True
 	
@@ -66,6 +74,8 @@ class Major(models.Model):
 	# description = models.CharField(max_length=100,null=True,blank=True)
 	def __str__(self):
 		return self.paper.name
+	def __unicode__(self):
+		return '/media/'+self.paper.name
 	def checkEmpty(self):
                 return True
 	
@@ -76,6 +86,8 @@ class Other(models.Model):
 	# description = models.CharField(max_length=100,null=True,blank=True)
 	def __str__(self):
 		return self.paper.name
+	def __unicode__(self):
+		return '/media/'+self.paper.name
 	def checkEmpty(self):
                 return True
 	
