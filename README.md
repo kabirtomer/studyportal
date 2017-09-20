@@ -22,7 +22,7 @@ Besides, if anyone has any slides or tuts of any course and sem, either send it 
 Currently the workpattern is this, people contibute using the upload button, this dumps the file in media/unapproved_documents.
 
 Using the approve page authorised people can add the papers.
--------------------------------------------------------------------------------------------------------------------------------------------
+
 ### Technology used
 We will work using python 2.7
 
