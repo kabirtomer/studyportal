@@ -8,8 +8,8 @@ from django.http import HttpResponse
 from .models import *
 
 from django.forms import ModelForm
-from studapp.forms import *
-from studapp.models import Document
+from study.forms import *
+from study.models import Document
 import os
 from django.core.files import File
 
@@ -36,13 +36,13 @@ def index(request):
 	courses=Course_code.objects.order_by('code')
 	context={'departments':departments,'courses':courses}
 
-	return render(request,'studapp/index.html',context)
+	return render(request,'study/index.html',context)
 
 def indexl(request):
 	departments=Department.objects.order_by('dept')
 	courses=Course_code.objects.order_by('code')
 	context={'departments':departments,'courses':courses}
-	return render(request,'studapp/indexl.html',context)
+	return render(request,'study/indexl.html',context)
 
 def display(request):
 	all_departments=Department.objects.order_by('dept')
@@ -54,14 +54,14 @@ def display(request):
 	except:
 		course_code_id='0'
 	if department_id=='0' and course_code_id=='0':
-		return render(request,'studapp/index.html',{'departments':all_departments,'courses':all_courses})
+		return render(request,'study/index.html',{'departments':all_departments,'courses':all_courses})
 	elif course_code_id=='0':
 		dept=Department.objects.get(pk=department_id)
-		return render(request,'studapp/get_course_codes.html',{'department':dept,'departments':all_departments,'courses':all_courses})
+		return render(request,'study/get_course_codes.html',{'department':dept,'departments':all_departments,'courses':all_courses})
 
 	else:
 		course=Course_code.objects.get(pk=course_code_id)
-		return track_hits(request,'studapp/get_papers.html',{'course':course,'departments':all_departments,'courses':all_courses},course)
+		return track_hits(request,'study/get_papers.html',{'course':course,'departments':all_departments,'courses':all_courses},course)
 
 def displayl(request):
 	all_departments=Department.objects.order_by('dept')
@@ -73,31 +73,31 @@ def displayl(request):
 	except:
 		course_code_id='0'
 	if department_id=='0' and course_code_id=='0':
-		return render(request,'studapp/indexl.html',{'departments':all_departments,'courses':all_courses})
+		return render(request,'study/indexl.html',{'departments':all_departments,'courses':all_courses})
 	elif course_code_id=='0':
 		dept=Department.objects.get(pk=department_id)
-		return render(request,'studapp/get_course_codesl.html',{'department':dept,'departments':all_departments,'courses':all_courses})
+		return render(request,'study/get_course_codesl.html',{'department':dept,'departments':all_departments,'courses':all_courses})
 	else:
 		course=Course_code.objects.get(pk=course_code_id)
-		return track_hits(request,'studapp/get_papersl.html',{'course':course,'departments':all_departments,'courses':all_courses},course)
+		return track_hits(request,'study/get_papersl.html',{'course':course,'departments':all_departments,'courses':all_courses},course)
 
 # def upload(request):
 #         departments=Department.objects.order_by('dept')
 # 	courses=Course_code.objects.order_by('code')
 # 	context={'departments':departments,'courses':courses}
-#         return render(request,'studapp/upload.html', context)
+#         return render(request,'study/upload.html', context)
 
 # def uploadl(request):
 #         departments=Department.objects.order_by('dept')
 # 	courses=Course_code.objects.order_by('code')
 # 	context={'departments':departments,'courses':courses}
-#         return render(request,'studapp/uploadl.html', context)
+#         return render(request,'study/uploadl.html', context)
 
 ####upload file
 def thanks(request):
-	return render(request,'studapp/thanks.html')
+	return render(request,'study/thanks.html')
 def thanksl(request):
-	return render(request,'studapp/thanksl.html')
+	return render(request,'study/thanksl.html')
 
 # def model_form_upload(request):
 # 	if request.method == 'POST':
@@ -110,11 +110,11 @@ def thanksl(request):
 			
 # 			txtfile.close()
 
-# 			return render(request,'studapp/thanks.html')
+# 			return render(request,'study/thanks.html')
 
 # 	else:
 # 		form = DocumentForm()
-# 	return render(request, 'studapp/model_form_upload.html', {'form': form})
+# 	return render(request, 'study/model_form_upload.html', {'form': form})
 def model_form_upload(request):
 	if request.method == 'POST':
 
@@ -126,10 +126,10 @@ def model_form_upload(request):
 		txtfile.write(request.POST.get('course_code','none')+'_'+request.POST.get('year','none')+'_sem'+request.POST.get('sem','none')+'_'+request.POST.get('type_exam','none')+request.FILES['document'].name[request.FILES['document'].name.rindex('.'):]+'\n')
 		
 		txtfile.close()
-		return render(request,'studapp/thanks.html')
+		return render(request,'study/thanks.html')
 
 	else:
-		return render(request, 'studapp/model_form_upload.html')
+		return render(request, 'study/model_form_upload.html')
 
 
 def model_form_uploadl(request):
@@ -143,17 +143,17 @@ def model_form_uploadl(request):
 		txtfile.write(request.POST.get('course_code','none')+'_'+request.POST.get('year','none')+'_sem'+request.POST.get('sem','none')+'_'+request.POST.get('type_exam','none')+request.FILES['document'].name[request.FILES['document'].name.rindex('.'):]+'\n')
 		
 		txtfile.close()
-		return render(request,'studapp/thanksl.html')
+		return render(request,'study/thanksl.html')
 
 	else:
-		return render(request, 'studapp/model_form_uploadl.html')
+		return render(request, 'study/model_form_uploadl.html')
 #approvals
 @login_required
 def approve(request):
 	txtfile = open('media/unapproved_documents/files.txt','r')
 	unapproved_documents = txtfile.readlines()
 	txtfile.close
-	return render(request, 'studapp/approve.html', {'unapproved_documents':unapproved_documents})
+	return render(request, 'study/approve.html', {'unapproved_documents':unapproved_documents})
 
 @login_required
 def remove_unapproved_document(request):
@@ -170,7 +170,7 @@ def remove_unapproved_document(request):
 		os.remove('media/unapproved_documents/'+request.GET.get('name','none'))
 	except:
 		return HttpResponse('<h1>No such file exists. Maybe it was manually deleted</h1>')
-	return redirect('/studapp/approve')
+	return redirect('/study/approve')
 
 #login to approve
 @login_required
@@ -182,25 +182,25 @@ def approve_unapproved_document(request):
 			newpaper = Major(course = coursecode)
 			newpaper.paper.save(fileName, File(open("media/unapproved_documents/"+fileName)))
 			newpaper.save()
-			return redirect('/studapp/remove_unapproved_document?name='+fileName)
+			return redirect('/study/remove_unapproved_document?name='+fileName)
 		elif fileName[fileName.rindex('_')+1:fileName.rindex('.')].upper() == "MINOR1":
 			coursecode = Course_code.objects.get(code=fileName[0:6].upper())
 			newpaper = Minor1(course = coursecode)
 			newpaper.paper.save(fileName, File(open("media/unapproved_documents/"+fileName)))
 			newpaper.save()
-			return redirect('/studapp/remove_unapproved_document?name='+fileName)
+			return redirect('/study/remove_unapproved_document?name='+fileName)
 		elif fileName[fileName.rindex('_')+1:fileName.rindex('.')].upper() == "MINOR2":
 			coursecode = Course_code.objects.get(code=fileName[0:6].upper())
 			newpaper = Minor2(course = coursecode)
 			newpaper.paper.save(fileName, File(open("media/unapproved_documents/"+fileName)))
 			newpaper.save()
-			return redirect('/studapp/remove_unapproved_document?name='+fileName)
+			return redirect('/study/remove_unapproved_document?name='+fileName)
 		else :
 			coursecode = Course_code.objects.get(code=fileName[0:6].upper())
 			newpaper = Other(course = coursecode)
 			newpaper.paper.save(fileName, File(open("media/unapproved_documents/"+fileName)))
 			newpaper.save()
-			return redirect('/studapp/remove_unapproved_document?name='+fileName)
+			return redirect('/study/remove_unapproved_document?name='+fileName)
 	except:
 		return HttpResponse('<h1> Such a course code does not exist</h1><h1>Ask the developers to add the course code and then try again</h1>')
 	
@@ -209,15 +209,15 @@ def userlogin(request):
 		user = authenticate(request,username=request.POST['username'],password=request.POST['password'])
 		if user is not None:
 			login(request,user)
-			return redirect('/studapp/approve')
+			return redirect('/study/approve')
 
 		else:
-			render(request,'studapp/login.html')
-	return render(request,'studapp/login.html')
+			render(request,'study/login.html')
+	return render(request,'study/login.html')
 def userlogout(request):
 	logout(request)
-	# return render(request,'studapp/login.html')
-	return redirect("/studapp/light/")
+	# return render(request,'study/login.html')
+	return redirect("/study/light/")
 #api
 
 class DepartmentList(APIView):

@@ -1,11 +1,11 @@
 from rest_framework import serializers
-from studapp.models import Document
-from studapp.models import Department
-from studapp.models import Course_code
-from studapp.models import Minor1
-from studapp.models import Minor2
-from studapp.models import Major
-from studapp.models import Other
+from study.models import Document
+from study.models import Department
+from study.models import Course_code
+from study.models import Minor1
+from study.models import Minor2
+from study.models import Major
+from study.models import Other
 
 class DepartmentSerializer(serializers.ModelSerializer):
 	course_code_set = serializers.StringRelatedField(many=True) #it has the coursecodes like apl100. This is the by default related name

@@ -1,5 +1,5 @@
 from django import forms
-from studapp.models import Document
+from study.models import Document
 from .models import *
 
 

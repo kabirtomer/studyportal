@@ -19,11 +19,11 @@ from django.views.generic import RedirectView
 
 
 urlpatterns = [
-    url(r'^accounts/login/$', RedirectView.as_view(url='/studapp/userlogin', permanent=True)),
-    url(r'^studapp/', include('studapp.urls')),
-    url(r'^studapp/light/', include('studapp.urls')),
+    url(r'^accounts/login/$', RedirectView.as_view(url='/study/userlogin', permanent=True)),
+    url(r'^study/', include('study.urls')),
+    url(r'^study/light/', include('study.urls')),
     url(r'^admin/', admin.site.urls),
-    url(r'^$', RedirectView.as_view(url='/studapp/light', permanent=True)),
+    url(r'^$', RedirectView.as_view(url='/study/light', permanent=True)),
     
 ]
 #####upload

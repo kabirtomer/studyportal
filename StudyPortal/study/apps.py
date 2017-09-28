@@ -4,5 +4,6 @@ from __future__ import unicode_literals
 from django.apps import AppConfig
 
 
-class StudappConfig(AppConfig):
-    name = 'studapp'
+class StudyConfig(AppConfig):
+    name = 'study'
+    # verbose_name = "study"
