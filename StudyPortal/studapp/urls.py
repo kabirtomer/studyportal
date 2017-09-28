@@ -25,12 +25,6 @@ urlpatterns = [
     url(r'^api/departments/$', views.DepartmentList.as_view() ),
     url(r'^api/course_codes/$', views.Course_codeList.as_view() ),
     url(r'^api/document/$', views.DocumentList.as_view() ),
-
-
-
-
-
-
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
