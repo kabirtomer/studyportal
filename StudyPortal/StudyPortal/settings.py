@@ -25,10 +25,11 @@ SECRET_KEY = 'emu=47^=^nxixq-^9l)ep)+mc5iq5y(v2=#n^*)(i$iq0b1x2p'
 # SECURITY WARNING: don't run with debug turned on in production!
 
 ############# Change this before making changes
-DEBUG = True
+DEBUG = True 
 #############
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '10.17.51.99']
+#ALLOWED_HOSTS = ['localhost', '127.0.0.1', '10.17.51.99']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
