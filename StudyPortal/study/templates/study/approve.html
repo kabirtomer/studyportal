@@ -31,7 +31,7 @@
 
 <h1>{{doc}}</h1>
 {% for doc in unapproved_documents%}
-	<a id="unapproved_document" href="/media/unapproved_documents/{{ doc }}">{{ doc }}</a>
+	<a id="unapproved_document" href="study/media/unapproved_documents/{{ doc }}">{{ doc }}</a>
 	<a style="position: absolute;right: 30%" id="unapproved_document" href="/study/approve_unapproved_document?name={{doc}}">Approve</a>
 
 	<a style="position: absolute;right: 20%" id="unapproved_document" href="/study/remove_unapproved_document?name={{doc}}">Remove</a>
@@ -42,5 +42,5 @@
 
 {% endblock %}
 {% block js %}
-	<script src="{% static 'studapp/thanks.js' %}"></script>
+	<script src="{% static 'thanks.js' %}"></script>
 	{% endblock %}
