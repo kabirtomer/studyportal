@@ -48,13 +48,20 @@
     <br>
     <label>Type of paper</label>
     
-    <input style="margin:0px;width:500px" list="types" name="type_exam" placeholder="minor1 or Probability_CheatSheet"  required>
+    <!-- <input style="margin:0px;width:500px" list="types" name="type_exam" placeholder="minor1 or Probability_CheatSheet"  required>
      <datalist id="types">
      <option value="minor1">
      <option value="minor2">
      <option value="major">
     </datalist>
-    <br>
+    <br> -->
+
+    <input type="radio" name="type_exam" value="minor1">Minor 1
+    <input type="radio" name="type_exam" value="minor2">Minor 2
+    <input type="radio" name="type_exam" value="major">Major
+    <input id="other" type="radio" name="type_exam" value="">
+    <input style="width:500px" id="other_text" type="text" name="other_text" placeholder="If not an exam paper, name of file like OhmsLawNotes" />​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​
+    <!-- <input type="radio" name="type_exam" value="">Other <input type="text" name="type_exam" />​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​ -->
 
     <input type="file" name="document" required>
 
@@ -71,5 +78,12 @@
 });
   </script>
 	<script src="{% static 'upload.js' %}"></script>
+  <script type="text/javascript">
+    $(function(){
+      $('#other_text').on('change', function(){
+        $('#other').val($('#other_text').val());
+      });
+    });
+  </script>
 </span>	
 {% endblock %}
