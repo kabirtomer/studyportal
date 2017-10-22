@@ -3,12 +3,12 @@
 {%block title%}{{ course.code }}{% endblock %}
 
 {% block navbar %}
-<nav class="navbar navbar-inverse" style="position:fixed;top:0px;width:70vw;border-radius:0px;left:30vw;">
+<nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <!--<div class="navbar-header">
       <a class="navbar-brand" href="#">WebSiteName</a>
     </div>-->
-    <ol class="nav navbar-nav" style='font-size:1.5vw;padding-bottom: 5px; display: inline-block;float: left;'>
+    <ol class="nav navbar-nav">
       <li style="display: inline-block;"><a href="/study/light/">Home</a></li>
 <li style="pointer-events: none;cursor: default; display: inline-block;" class='nav_li'><a href="/study/light/">></a></li>
 <li style="display: inline-block;"><a href="?department={{course.dept.id}}&course_code=0">{{course.dept.dept}}</a></li>
@@ -18,7 +18,7 @@
       <li><a href="#">Page 2</a></li>
       <li><a href="#">Page 3</a></li>-->
     </ol>
-    <a style="text-decoration:none; float:right;" href="/study/"><h4 style="font-size:1vw; ">SWITCH THEME</h4></a>
+    <a style="text-decoration:none; float:right;" href="/study/"><h4 style="font-size:1em; ">Switch Theme</h4></a>
 
   </div>
 </nav>
@@ -44,7 +44,7 @@
 <ul>
 {% for exam in course.minor1_set.all %}
 <!--<p class="p">{{ exam.paper }}</p>-->
-<li><div class="desc"><a class='p' href={{exam.paper.url}}>{{exam.paper}}</a><div class="description">{{exam.description}}</div></div></li>
+<li><div class="desc"><a class='p' href={{exam.paper.url}}>{{exam.displayname}}</a><div class="description">{{exam.description}}</div></div></li>
 {% endfor %}
 </ul>
 </div>
@@ -55,7 +55,7 @@
 <h3>Minor 2</h3>
 <ul>
 {% for exam in course.minor2_set.all %}
-<li><div class="desc"><a class='p' href={{exam.paper.url}}>{{exam.paper}}</a><div class="description">{{exam.description}}</div></div></li>
+<li><div class="desc"><a class='p' href={{exam.paper.url}}>{{exam.displayname}}</a><div class="description">{{exam.description}}</div></div></li>
 {% endfor %}
 </ul>
 </div>
@@ -68,7 +68,7 @@
 <h3>Major</h3>
 <ul>
 {% for exam in course.major_set.all %}
-<li><div class="desc"><a class='p' href={{exam.paper.url}}>{{exam.paper}}</a><div class="description">{{exam.description}}</div></div></li>
+<li><div class="desc"><a class='p' href={{exam.paper.url}}>{{exam.displayname}}</a><div class="description">{{exam.description}}</div></div></li>
 {% endfor %}
 </ul>
 </div>
