@@ -3,7 +3,9 @@
 __pycache__
 myvenv
 *.sqlite3
-/static
+*.jpg
+*.png
+*.gif
 .DS_Store
 venv
 staticfiles
