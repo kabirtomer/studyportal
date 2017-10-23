@@ -2,10 +2,11 @@
 *~
 __pycache__
 myvenv
-db.sqlite3
+*.sqlite3
 /static
 .DS_Store
 venv
 *.pyc
 staticfiles
 .env
+StudyPortal/media/
