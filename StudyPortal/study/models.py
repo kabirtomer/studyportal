@@ -46,6 +46,9 @@ class Minor1(models.Model):
 	#paper=models.CharField(max_length=50)
 	paper = models.FileField()
 	# description = models.CharField(max_length=100,null=True,blank=True)
+	def displayname(self):                
+                string = self.paper.name.split('_')[2]+" "+self.paper.name.split('_')[3]
+		return string
 	def __str__(self):
 		return self.paper.name
 	#for serializer to string
@@ -58,10 +61,13 @@ class Minor1(models.Model):
 class Minor2(models.Model):
 	course=models.ForeignKey(Course_code,on_delete=models.CASCADE)
 	#paper=models.CharField(max_length=50)
-	paper = models.FileField()
-	# description = models.CharField(max_length=100,null=True,blank=True)	
+        paper = models.FileField()
+	# description = models.CharField(max_length=100,null=True,blank=True)
+	def displayname(self):                
+                string = self.paper.name.split('_')[2]+" "+self.paper.name.split('_')[3]
+		return string
 	def __str__(self):
-		return self.paper.name
+                return self.paper.name
 	def __unicode__(self):
 		return '/media/'+self.paper.name
 	def checkEmpty(self):
@@ -72,6 +78,9 @@ class Major(models.Model):
 	#paper=models.CharField(max_length=50)
 	paper = models.FileField()
 	# description = models.CharField(max_length=100,null=True,blank=True)
+	def displayname(self):                
+                string = self.paper.name.split('_')[2]+" "+self.paper.name.split('_')[3]
+		return string
 	def __str__(self):
 		return self.paper.name
 	def __unicode__(self):

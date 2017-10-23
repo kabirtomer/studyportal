@@ -1,12 +1,12 @@
 {% extends 'study/indexl.html' %}
 {% load static %}
 {% block navbar %}
-<nav class="navbar navbar-inverse" style="position:fixed;top:0px;width:70vw;left:30vw;">
+<nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <!--<div class="navbar-header">
       <a class="navbar-brand" href="#">WebSiteName</a>
     </div>-->
-    <ol class="nav navbar-nav" style='font-size:1.5vw;padding-bottom: 5px;display: inline-block;float: left;'>
+    <ol class="nav navbar-nav">
       <li style="display: inline-block;"><a href="/study/light/">Home</a></li>
 	<li style="pointer-events: none;cursor: default;display: inline-block;" class='nav_li'><a href="/study/light/">></a></li>
 <li class='nav_li' style="display: inline-block;"><a href="">Upload</a></li>
@@ -14,7 +14,7 @@
       <li><a href="#">Page 2</a></li>
       <li><a href="#">Page 3</a></li>-->
     </ol>
-    <a style="text-decoration:none; float:right;" href="/study/"><h4 style="font-size:1vw; ">SWITCH THEME</h4></a>
+    <a style="text-decoration:none; float:right;" href="/study/"><h4 style="font-size:1vw; ">Switch Theme</h4></a>
 
   </div>
 </nav>
@@ -48,13 +48,20 @@
     <br>
     <label>Type of paper</label>
     
-    <input style="margin:0px;width:500px" list="types" name="type_exam" placeholder="minor1 or Probability_CheatSheet"  required>
+    <!-- <input style="margin:0px;width:500px" list="types" name="type_exam" placeholder="minor1 or Probability_CheatSheet"  required>
      <datalist id="types">
      <option value="minor1">
      <option value="minor2">
      <option value="major">
     </datalist>
-    <br>
+    <br> -->
+
+    <input type="radio" name="type_exam" value="minor1">Minor1
+    <input type="radio" name="type_exam" value="minor2">Minor2
+    <input type="radio" name="type_exam" value="major">Major
+    <input id="other" type="radio" name="type_exam" value="">Other:
+    <input style="width:400px" id="other_text" type="text" name="other_text" placeholder="If not an exam paper, enter file name" />​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​
+    <!-- <input type="radio" name="type_exam" value="">Other <input type="text" name="type_exam" />​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​ -->
 
     <input type="file" name="document" required>
 
@@ -71,5 +78,12 @@
 });
   </script>
 	<script src="{% static 'upload.js' %}"></script>
+  <script type="text/javascript">
+    $(function(){
+      $('#other_text').on('change', function(){
+        $('#other').val($('#other_text').val());
+      });
+    });
+  </script>
 </span>	
 {% endblock %}

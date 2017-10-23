@@ -13,14 +13,14 @@ body{
 }
 
 .sidebar{
-	width: 30vw !important;
+	width: 25vw;
     height: 100vh;
     /* width: 300px; Removed*/
     /* float:left  Removed*/
     left:0; /* Added */
     top:0; /* Added */
     position: fixed; /*Changed from absolute*/
-	padding: 1%;
+  padding: 1%;
 
 	/*background-color: #160c28;*/
 background-image: url("concrete_wall.jpg");
@@ -29,25 +29,35 @@ background-image: url("concrete_wall.jpg");
 
 }
 .content{
-	width:70%;
-	padding:10vh 3vw;
-	min-height: 100vh;
+	width:74vw;
+  padding:10vh 3vw;
+  min-height:100vh;
+  background-color: #faf5f7;
+  
+  margin-right: 0;
+    /* width: 630px; Removed*/
+  margin-left: 24vw ;/* Added */
 	background-color: dimgray; /* For browsers that do not support gradients */
   background: -webkit-linear-gradient(bottom right, dimgray, #151616); /* For Safari 5.1 to 6.0 */
   background: -o-linear-gradient(bottom right, dimgray, #151616); /* For Opera 11.1 to 12.0 */
   background: -moz-linear-gradient(bottom right, dimgray, #151616); /* For Firefox 3.6 to 15 */
   background: linear-gradient(to bottom right, dimgray, #151616); /* Standard syntax */
-
-
-
-
-
     /* width: 630px; Removed*/
-	margin-left: 30%;/* Added */
 	/*padding: 50px 5% 5% 60px;*/
 	background-repeat: repeat-y;
   background-size: cover;
 
+}
+
+.nav>li>a{
+  padding-top: 0px;
+  padding-bottom: 0px;
+  padding-right: 0px;
+  padding-left: 10px;
+}
+
+.navbar-nav{
+  font-size: 1.2em;display: inline-block;float: left;width: 90%;
 }
 
 a{
@@ -376,7 +386,7 @@ font-size: 0.75em;
 .navbar-inverse{
   border: none;
   box-shadow: 0px 4px 3px rgba(0,0,0,0.4), 0px  8px 13px rgba(0,0,0,0.1), 0px 18px 23px rgba(0,0,0,0.1);
-  
+  margin-top: -9vh;
   background: #f2f2f2; /* For browsers that do not support gradients */
     background: -webkit-linear-gradient(#969696, dimgray); /* For Safari 5.1 to 6.0 */
     background: -o-linear-gradient(#969696,dimgray); /* For Opera 11.1 to 12.0 */
